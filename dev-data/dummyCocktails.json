@@ -1,0 +1,196 @@
+[
+  {
+    "name": "Old Fashioned",
+    "cocktailType": "Spirit Forward",
+    "glassType": "Rocks",
+    "recipe": [
+      {
+        "ingredient": "Bourbon",
+        "brand": "Wild Turkey",
+        "quantity": 2,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Sugar",
+        "quantity": 5,
+        "unit": "ml"
+      },
+      {
+        "ingredient": "Bitters",
+        "brand": "Angostura",
+        "quantity": 2,
+        "unit": "dash"
+      }
+    ],
+    "garnish": "Orange Twist",
+    "method": "Stir all ingredients over ice"
+  },
+  {
+    "name": "Daiquiri",
+    "cocktailType": "Citrus Forward",
+    "glassType": "Coupe",
+    "recipe": [
+      {
+        "ingredient": "White Rum",
+        "brand": "Havana 3yr",
+        "quantity": 2,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Lime Juice",
+        "quantity": 0.75,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Sugar",
+        "quantity": 0.5,
+        "unit": "oz"
+      }
+    ],
+    "garnish": "None",
+    "method": "Shake all ingredients and double strain into a chilled coupe"
+  },
+  {
+    "name": "Penicillin",
+    "cocktailType": "Citrus Forward",
+    "glassType": "Rocks",
+    "recipe": [
+      {
+        "ingredient": "Scotch",
+        "brand": "Dewar's White Label",
+        "quantity": 2,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Scotch",
+        "brand": "Laphroaig 10yr",
+        "quantity": 0.25,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Lemon Juice",
+        "quantity": 1,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Ginger Syrup",
+        "quantity": 0.5,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Honey Syrup",
+        "quantity": 0.5,
+        "unit": "oz"
+      }
+    ],
+    "garnish": "Candied Ginger",
+    "method": "Shake all ingredients and double strain into a chilled rocks glass"
+  },
+  {
+    "name": "Last Word",
+    "cocktailType": "Citrus Forward",
+    "glassType": "Coupe",
+    "recipe": [
+      {
+        "ingredient": "Gin",
+        "quantity": "0.75",
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Luxardo Maraschino",
+        "quantity": "0.75",
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Green Chartreuse",
+        "quantity": "0.75",
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Lime Juice",
+        "quantity": "0.75",
+        "unit": "oz"
+      }
+    ],
+    "garnish": "Cherry",
+    "method": "Shake all ingredients and double strain into a chilled coupe."
+  },
+  {
+    "name": "Paper Plane",
+    "cocktailType": "Citrus Forward",
+    "glassType": "Coupe",
+    "recipe": [
+      {
+        "ingredient": "Bourbon",
+        "brand": "Wild Turkey",
+        "quantity": 0.75,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Aperol",
+
+        "quantity": 0.75,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Amaro Nonino",
+
+        "quantity": 0.75,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Lemon Juice",
+
+        "quantity": 0.75,
+        "unit": "oz"
+      }
+    ],
+    "garnish": "Lemon Twist",
+    "method": "Shake all ingredients and double strain into a chilled coupe."
+  },
+  {
+    "name": "New York Sour",
+    "cocktailType": "Sour",
+    "glassType": "Rocks",
+    "recipe": [
+      {
+        "ingredient": "Bourbon",
+        "brand": "Maker's Mark",
+        "quantity": 2,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Red Wine",
+
+        "quantity": 0.25,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Egg White",
+
+        "quantity": 1,
+        "unit": "whole"
+      },
+      {
+        "ingredient": "Lemon Juice",
+
+        "quantity": 0.75,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Sugar",
+
+        "quantity": 0.75,
+        "unit": "oz"
+      },
+      {
+        "ingredient": "Angostura Bitters",
+
+        "quantity": 2,
+        "unit": "dash"
+      }
+    ],
+    "garnish": "Angostura Bitters",
+    "method": "Dry shake all ingredients excluding the wine and then double shake. Double strain into a chilled coupe, and drop angostura bitters and wine over top"
+  }
+]

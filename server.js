@@ -12,17 +12,11 @@ const DB = process.env.DATABASE.replace(
 
 // console.log(DB);
 
-mongoose
-  .connect(DB, {
-    // useNewUrlParser: true,
-    // useCreateIndex: true,
-    // useFindAndModify: false,
-    // useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  });
+mongoose.connect(DB).then(() => {
+  console.log('Connected to MongoDB');
+});
 
 const server = app.listen(8000, () => {
-  console.log('listening on port 8000...');
+  console.log(`Starting ${process.env.NODE_ENV.toUpperCase()} server...`);
+  console.log(`Listening on port ${process.env.PORT}...`);
 });
