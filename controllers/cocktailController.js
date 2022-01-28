@@ -4,16 +4,13 @@ const AppError = require('../utils/appError');
 exports.getAllCocktails = async (req, res, next) => {
   try {
     // ------ FIND COCKTAILS WITH JUST ALL OF THESE INGS (VERY JANKY) ------//
-    const pipeline = req.query.ingredient.split(',').map((ing) => {
-      return {
-        $match: {
-          'recipe.ingredient': ing,
-        },
-      };
-    });
+    const pipeline = req.query.ingredient.split(',').map((ing) => ({
+      $match: {
+        'recipe.ingredient': ing,
+      },
+    }));
     const cocktailsByIng = await Cocktail.aggregate([...pipeline]);
     ////////////////////////////////////////////////////////////////////
-
     // ------ FIND COCKTAILS WITH JUST ONE OF THESE INGS ------//
     // const cocktails = await Cocktail.find({
     //   'recipe.ingredient': {
@@ -21,7 +18,7 @@ exports.getAllCocktails = async (req, res, next) => {
     //   },
     // });
     ////////////////////////////////////////////////////////////////////
-    const cocktails = await Cocktail.find();
+    const cocktails = await Cocktail.find().select('name');
     res.status(200).json({
       status: 'success',
       AggregateCocktails_results: cocktailsByIng.length,

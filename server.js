@@ -20,3 +20,11 @@ const server = app.listen(8000, () => {
   console.log(`Starting ${process.env.NODE_ENV.toUpperCase()} server...`);
   console.log(`Listening on port ${process.env.PORT}...`);
 });
+
+process.on('unhandledRejection', (err) => {
+  console.log('UNHANDED REJECTION 🚨 Shutting down...');
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
+  });
+});

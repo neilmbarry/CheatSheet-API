@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const cocktailRouter = require('./routes/cocktailRoutes');
+const userRouter = require('./routes/userRoutes');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -29,6 +30,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/api/v1/cocktails', cocktailRouter);
+app.use('/api/v1/users', userRouter);
 
 app.all('*', (req, res, next) => {
   const error = new AppError(

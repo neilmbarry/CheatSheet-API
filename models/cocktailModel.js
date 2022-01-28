@@ -29,6 +29,7 @@ const cocktailSchema = new mongoose.Schema({
   },
   glassType: {
     type: String,
+    trim: true,
     required: [true, 'A cocktail must have a recommended glass.'],
     enum: {
       values: ['Rocks', 'Coupe', 'Tall', 'Flute', 'Other'],
@@ -40,6 +41,7 @@ const cocktailSchema = new mongoose.Schema({
       {
         ingredient: {
           type: String,
+          trim: true,
           required: [true, 'An ingredient must have a name.'],
         },
         brand: String,
