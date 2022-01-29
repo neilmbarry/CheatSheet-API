@@ -60,6 +60,10 @@ userSchema.pre('save', function (next) {
   this.passwordChangedAt = Date.now();
 });
 
+userSchema.methods.isCorrectPassword = async function (candidatePassword) {
+  return await bcrypt.compare(candidatePassword, this.password);
+};
+
 const User = mongoose.model('user', userSchema);
 
 module.exports = User;

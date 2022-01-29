@@ -3,6 +3,7 @@ const fs = require('fs');
 // const path = require('path');
 const dotenv = require('dotenv');
 const Cocktail = require('../models/cocktailModel');
+const User = require('../models/userModel');
 
 dotenv.config({ path: `${__dirname}/../config.env` });
 
@@ -15,16 +16,24 @@ mongoose.connect(DB).then(() => {
   console.log('Connected to MongoDB');
 });
 
-const addCocktails = async () => {
+const users = JSON.parse(
+  fs.readFileSync(`${__dirname}/../dev-data/dummyUsers.json`),
+  'utf-8'
+);
+
+const cocktails = JSON.parse(
+  fs.readFileSync(`${__dirname}/../dev-data/dummyCocktails.json`),
+  'utf-8'
+);
+
+const addData = async () => {
   try {
     console.log('Importing cocktails...');
-    await Cocktail.create(
-      JSON.parse(
-        fs.readFileSync(`${__dirname}/../dev-data/dummyCocktails.json`),
-        'utf-8'
-      )
-    );
+    await Cocktail.create(cocktails);
     console.log('Cocktails imported!');
+    console.log('Importing users...');
+    await User.create(users);
+    console.log('Users imported!');
     process.exit(1);
   } catch (err) {
     console.log(err);
@@ -32,11 +41,12 @@ const addCocktails = async () => {
   }
 };
 
-const deleteCocktails = async () => {
+const deleteData = async () => {
   try {
-    console.log('Deleting cocktails...');
+    console.log('Deleting data...');
     await Cocktail.deleteMany();
-    console.log('Cocktails deleted!');
+    await User.deleteMany();
+    console.log('Data deleted!');
     process.exit(1);
   } catch (err) {
     console.log(err);
@@ -44,20 +54,17 @@ const deleteCocktails = async () => {
   }
 };
 
-const resetCocktails = async () => {
+const resetData = async () => {
   try {
-    console.log('Deleting cocktails...');
+    console.log('Deleting data...');
 
     await Cocktail.deleteMany();
-    console.log('Cocktails deleted!');
-    console.log('Importing cocktails...');
-    await Cocktail.create(
-      JSON.parse(
-        fs.readFileSync(`${__dirname}/../dev-data/dummyCocktails.json`),
-        'utf-8'
-      )
-    );
-    console.log('Cocktails imported!');
+    await User.deleteMany();
+    console.log('Data deleted!');
+    console.log('Importing data...');
+    await Cocktail.create(cocktails);
+    await User.create(users);
+    console.log('Data imported!');
     process.exit(1);
   } catch (err) {
     console.log(err);
@@ -66,13 +73,13 @@ const resetCocktails = async () => {
 };
 
 if (process.argv[2] === '--import') {
-  addCocktails();
+  addData();
 }
 
 if (process.argv[2] === '--delete') {
-  deleteCocktails();
+  deleteData();
 }
 
 if (process.argv[2] === '--reset') {
-  resetCocktails();
+  resetData();
 }
