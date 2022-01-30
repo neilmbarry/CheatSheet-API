@@ -62,7 +62,9 @@ const resetData = async () => {
     await User.deleteMany();
     console.log('Data deleted!');
     console.log('Importing data...');
-    await Cocktail.create(cocktails);
+    await Cocktail.create(cocktails, {
+      validateBeforeSave: false,
+    });
     await User.create(users);
     console.log('Data imported!');
     process.exit(1);

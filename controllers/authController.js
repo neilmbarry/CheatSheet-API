@@ -97,10 +97,12 @@ exports.protect = async (req, res, next) => {
       (req.headers.authorization &&
         req.headers.authorization.startsWith('Bearer') &&
         req.headers.authorization.split(' ')[1]) ||
-      req.cookies.jwt;
+      req.cookies?.jwt;
     // If it does not exist res 'not logged in / Could not find token'
     if (!token) {
-      return next(new AppError('User is not logged in.', 401));
+      return next(
+        new AppError('You must be logged in to perform this action.', 401)
+      );
     }
 
     // Verify token and isn't expired
@@ -225,8 +227,30 @@ exports.resetPassword = async (req, res, next) => {
 };
 
 // UPDATE PASSWORD (protect)
-// route /updatePassword
-// req.body should include current password, newPassword, and newPasswordConfirm
-// findById and update
-// update user with validators
-// update user.passwordChangedAt
+exports.updatePassword = async (req, res, next) => {
+  try {
+    // route /updatePassword
+    // req.body should include current password, newPassword, andnewPasswordConfirm
+    const { currentPassword, newPassword, newPasswordConfirm } = req.body;
+    const user = await User.findById(req.user.id).select('+password');
+    //Check current password is correct
+    if (!(await user.isCorrectPassword(currentPassword))) {
+      return next(
+        new AppError(
+          'Sorry, you current password is incorrect. Please try again.'
+        )
+      );
+    }
+    user.password = newPassword;
+    user.passwordConfirm = newPasswordConfirm;
+    await user.save();
+    res.status(201).json({
+      status: 'success',
+      message: 'Password Updated.',
+    });
+    // update user with validators
+    // update user.passwordChangedAt
+  } catch (err) {
+    return next(err);
+  }
+};

@@ -33,7 +33,14 @@ exports.getAllCocktails = async (req, res, next) => {
 
 exports.createCocktail = async (req, res, next) => {
   try {
-    const newCocktail = await Cocktail.create(req.body);
+    const newCocktail = await Cocktail.create({
+      name: req.body.name,
+      cocktailType: req.body.cocktailType,
+      glassType: req.body.glassType,
+      recipe: req.body.recipe,
+      method: req.body.method,
+      author: req.user.id,
+    });
 
     res.status(200).json({
       status: 'success',

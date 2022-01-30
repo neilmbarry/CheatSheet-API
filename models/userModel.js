@@ -39,6 +39,20 @@ const userSchema = new mongoose.Schema({
       message: 'Passwords are not the same',
     },
   },
+  favorites: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Cocktail',
+    },
+  ],
+  submissions: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Cocktail',
+    },
+  ],
+  inventory: [String],
+  reviews: [String],
   passwordChangedAt: Date,
   passwordResetToken: String,
   passwordResetExpires: Date,
@@ -81,6 +95,6 @@ userSchema.methods.tokenExpired = function () {
   return this.passwordResetExpires.getTime() < Date.now();
 };
 
-const User = mongoose.model('user', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
