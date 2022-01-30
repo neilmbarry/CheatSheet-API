@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
+const crypto = require('crypto');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const sendEmail = require('../utils/email');
@@ -138,6 +139,9 @@ exports.forgotPassword = async (req, res, next) => {
     // Generate reset token from crypto, plus expiry
     // Save hashed token to user
     const resetToken = user.createPasswordResetToken();
+    await user.save({
+      validateBeforeSave: false,
+    });
     const resetURL = `${req.protocol}://${req.get(
       'host'
     )}/api/v1/resetPassword/${resetToken}`;
@@ -146,15 +150,21 @@ exports.forgotPassword = async (req, res, next) => {
 
     // Configure email client on config.env
     // Send reset token and address to email provided
-    sendEmail({
-      email,
-      subject: 'You forgot your password, dumb dumb!',
-      message,
-    });
+    try {
+      sendEmail({
+        email,
+        subject: 'You forgot your password, dumb dumb!',
+        message,
+      });
+    } catch (err) {
+      return next(new AppError('Error sending email. Please try again.', 500));
+    }
+
     // respond with email sent
     res.status(200).json({
       status: 'success',
       message: 'Check your email for a reset link.',
+      user,
     });
   } catch (err) {
     return next(err);
@@ -162,13 +172,57 @@ exports.forgotPassword = async (req, res, next) => {
 };
 
 // RESET PASSWORD
-exports.resetPassword;
-// route /resetPassword/:resetToken
-// find user with same resetToken
-// check if expired
-// req.body should include password and passwordConfirm, and email?
-// update user with validators -- user.save()
-// update user.passwordChangedAt
+exports.resetPassword = async (req, res, next) => {
+  try {
+    // route /resetPassword/:resetToken
+    const { resetToken } = req.params;
+    const resetTokenHash = crypto
+      .createHash('sha256')
+      .update(resetToken)
+      .digest('hex');
+    // find user with same resetToken
+
+    const user = await User.findOne({ passwordResetToken: resetTokenHash });
+    console.log('USER: ', user);
+    if (!user) {
+      return next(
+        new AppError(
+          'Could not find user associated with token, please try again.',
+          404
+        )
+      );
+    }
+
+    // check if expired
+
+    if (user.tokenExpired()) {
+      return next(
+        new AppError('Reset token has expired, please try again.', 400)
+      );
+    }
+
+    // req.body should include password and passwordConfirm, and email?
+
+    user.password = req.body.password;
+    user.passwordConfirm = req.body.passwordConfirm;
+
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
+
+    // update user with validators -- user.save()
+
+    await user.save();
+    user.password = undefined;
+
+    // update user.passwordChangedAt\
+    res.status(200).json({
+      status: 'success',
+      user,
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
 
 // UPDATE PASSWORD (protect)
 // route /updatePassword

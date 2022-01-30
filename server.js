@@ -22,7 +22,7 @@ const server = app.listen(8000, () => {
 });
 
 process.on('unhandledRejection', (err) => {
-  console.log('UNHANDED REJECTION 🚨 Shutting down...');
+  console.log('UNHANDED REJECTION (Promise) 🚨 Shutting down...');
   console.log(err.name, err.message);
   server.close(() => {
     process.exit(1);

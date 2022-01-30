@@ -59,6 +59,7 @@ userSchema.pre('save', async function (next) {
 userSchema.pre('save', function (next) {
   if (!this.isModified('password') || this.isNew) return next();
   this.passwordChangedAt = Date.now();
+  next();
 });
 
 userSchema.methods.isCorrectPassword = async function (candidatePassword) {
@@ -73,6 +74,11 @@ userSchema.methods.createPasswordResetToken = function () {
     .digest('hex');
   this.passwordResetExpires = Date.now() + 600000;
   return resetToken;
+};
+
+userSchema.methods.tokenExpired = function () {
+  if (!this.passwordResetExpires) return;
+  return this.passwordResetExpires.getTime() < Date.now();
 };
 
 const User = mongoose.model('user', userSchema);
