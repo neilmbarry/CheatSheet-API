@@ -53,3 +53,8 @@ exports.deleteUser = async (req, res, next) => {
     message: 'This route is not yet defined.',
   });
 };
+
+exports.getMe = async (req, res, next) => {
+  req.params.id = req.user.id;
+  next();
+};

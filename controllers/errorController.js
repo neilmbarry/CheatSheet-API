@@ -29,6 +29,11 @@ const handleCastError = (err) => {
   return new AppError(message, 404);
 };
 
+const handleTokenExpired = (err) => {
+  const message = `{${err.name}}: We thought you'd left! Please log in.`;
+  return new AppError(message, 400);
+};
+
 const handleDuplicateError = (err) => {
   const message = `{${err.keyValue.name}} already exists. Please choose a different name`;
   return new AppError(message, err.statusCode);
@@ -57,6 +62,10 @@ module.exports = (err, req, res, next) => {
 
     if (error.name === 'CastError') {
       error = handleCastError(error);
+    }
+
+    if (error.name === 'TokenExpiredError') {
+      error = handleTokenExpired(error);
     }
 
     if (error.code === 11000) {

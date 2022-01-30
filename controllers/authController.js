@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
+const { promisify } = require('util');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
+const sendEmail = require('../utils/email');
 
 //TODO
 // SIGN UP
@@ -27,6 +29,7 @@ const createJsonWebToken = (id) =>
 exports.signUp = async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
+    // ---- BELOW TO BE REFACTORED INTO SEPARATE FUNCTION ----- //
     const token = createJsonWebToken(newUser._id);
     const cookieOptions = {
       expires: new Date(
@@ -45,6 +48,7 @@ exports.signUp = async (req, res, next) => {
       newUser,
       token,
     });
+    // ------------------------------------------------------- //
   } catch (err) {
     return next(err);
   }
@@ -84,3 +88,91 @@ exports.login = async (req, res, next) => {
     return next(err);
   }
 };
+
+exports.protect = async (req, res, next) => {
+  try {
+    // Grab token from cookie or auth header
+    const token =
+      (req.headers.authorization &&
+        req.headers.authorization.startsWith('Bearer') &&
+        req.headers.authorization.split(' ')[1]) ||
+      req.cookies.jwt;
+    // If it does not exist res 'not logged in / Could not find token'
+    if (!token) {
+      return next(new AppError('User is not logged in.', 401));
+    }
+
+    // Verify token and isn't expired
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+    // console.log(decoded);
+    // Find user from token
+    const user = await User.findById(decoded.id);
+    if (!user) {
+      return next(
+        new AppError('The user belonging to this token no longer exists.', 404)
+      );
+    }
+    // --- ADD CHECK TO SEE IF USER HAS RECENTLY CHANGED PASSWORD --- //
+    req.user = user;
+    next();
+  } catch (err) {
+    return next(err);
+  }
+};
+
+// TODO
+
+// FORGOT PASSWORD
+exports.forgotPassword = async (req, res, next) => {
+  // Check user exists from entered email address
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return next(new AppError('Please provide an email.'));
+    }
+    const user = await User.findOne({ email });
+    if (!user) {
+      return next(new AppError('Could not find user with that email address.'));
+    }
+
+    // Generate reset token from crypto, plus expiry
+    // Save hashed token to user
+    const resetToken = user.createPasswordResetToken();
+    const resetURL = `${req.protocol}://${req.get(
+      'host'
+    )}/api/v1/resetPassword/${resetToken}`;
+
+    const message = `Forgot your password? Click the following link to reset it: ${resetURL}`;
+
+    // Configure email client on config.env
+    // Send reset token and address to email provided
+    sendEmail({
+      email,
+      subject: 'You forgot your password, dumb dumb!',
+      message,
+    });
+    // respond with email sent
+    res.status(200).json({
+      status: 'success',
+      message: 'Check your email for a reset link.',
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
+// RESET PASSWORD
+exports.resetPassword;
+// route /resetPassword/:resetToken
+// find user with same resetToken
+// check if expired
+// req.body should include password and passwordConfirm, and email?
+// update user with validators -- user.save()
+// update user.passwordChangedAt
+
+// UPDATE PASSWORD (protect)
+// route /updatePassword
+// req.body should include current password, newPassword, and newPasswordConfirm
+// findById and update
+// update user with validators
+// update user.passwordChangedAt
