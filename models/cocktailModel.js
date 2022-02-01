@@ -72,10 +72,10 @@ const cocktailSchema = new mongoose.Schema(
     garnish: String,
     method: String,
     image: String,
-    author: {
+    user: {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
-      required: [true, 'A cocktail must have an author.'],
+      required: [true, 'A cocktail must have an user (author).'],
     },
     ratingsQuantity: Number,
     ratingsAverage: Number,
@@ -86,9 +86,7 @@ const cocktailSchema = new mongoose.Schema(
   }
 );
 
-cocktailSchema.virtual('durationWeeks').get(function () {
-  return 6;
-});
+cocktailSchema.virtual('durationWeeks').get(() => 6);
 
 cocktailSchema.virtual('reviews', {
   ref: 'User',

@@ -8,16 +8,22 @@ const {
   deleteCocktail,
 } = require('../controllers/cocktailController');
 
-const { protect } = require('../controllers/authController');
+const { protect, restrictTo } = require('../controllers/authController');
+
+const reviewRouter = require('./reviewRoutes');
 
 const router = express.Router();
 
+router.use('/:cocktailId/reviews', reviewRouter);
+
 router.route('/').get(getAllCocktails).post(protect, createCocktail);
+
+router.route('/');
 
 router
   .route('/:id')
   .get(getCocktail)
-  .patch(protect, updateCocktail)
-  .delete(protect, deleteCocktail);
+  .patch(protect, restrictTo('admin', 'author'), updateCocktail)
+  .delete(protect, restrictTo('admin', 'author'), deleteCocktail);
 
 module.exports = router;

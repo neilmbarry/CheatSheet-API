@@ -4,6 +4,8 @@ const crypto = require('crypto');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const sendEmail = require('../utils/email');
+const Cocktail = require('../models/cocktailModel');
+const Review = require('../models/reviewModel');
 
 //TODO
 // SIGN UP
@@ -121,6 +123,41 @@ exports.protect = async (req, res, next) => {
   } catch (err) {
     return next(err);
   }
+};
+
+exports.restrictTo = (...users) => {
+  return async (req, res, next) => {
+    if (users.includes('author')) {
+      let isAuthor = false;
+      const model = req.baseUrl.split('/')[3];
+      if (model === 'cocktails') {
+        const cocktail = await Cocktail.findById(req.params.id);
+        console.log(cocktail);
+        const cocktailAuthorId = cocktail.user.toString();
+        isAuthor = req.user.id == cocktailAuthorId ? true : false;
+      }
+      if (model === 'reviews') {
+        const review = await Review.findById(req.params.id);
+        const reviewAuthorId = review.user.toString();
+        isAuthor = req.user.id == reviewAuthorId ? true : false;
+      }
+      if (!isAuthor) {
+        if (users.includes(req.user.role)) {
+          return next();
+        }
+        return next(new AppError('You are not the author.', 401));
+      }
+    } else {
+      if (!users.includes(req.user.role)) {
+        return next(new AppError('You do not have permissions.', 401));
+      }
+    }
+
+    // if (req.user.id !== cocktail.author.toString()) {
+    //   return next(new AppError('You are not the author.', 401));
+    // }
+    next();
+  };
 };
 
 // TODO

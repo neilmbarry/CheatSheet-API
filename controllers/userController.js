@@ -41,17 +41,27 @@ exports.createUser = async (req, res, next) => {
 };
 
 exports.updateUser = async (req, res, next) => {
-  res.status(403).json({
-    status: 'fail',
-    message: 'This route is not yet defined.',
-  });
+  try {
+    const userId = req.params.id || req.user.id;
+    await User.findByIdAndUpdate(userId, req.body);
+    res.status(200).json({
+      status: 'success',
+      message: 'User updated!',
+    });
+  } catch (err) {
+    return next(err);
+  }
 };
 
 exports.deleteUser = async (req, res, next) => {
-  res.status(403).json({
-    status: 'fail',
-    message: 'This route is not yet defined.',
-  });
+  try {
+    await User.findByIdAndDelete(req.params.id);
+    res.status(204).json({
+      status: 'success',
+    });
+  } catch (err) {
+    return next(err);
+  }
 };
 
 exports.getMe = async (req, res, next) => {
