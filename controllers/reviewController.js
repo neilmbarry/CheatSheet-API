@@ -12,6 +12,7 @@ exports.getAllReviews = async (req, res, next) => {
     res.status(200).json({
       status: 'success',
       results: reviews.length,
+      requestedAt: req.requestedAt,
       reviews,
     });
   } catch (err) {

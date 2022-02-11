@@ -1,15 +1,16 @@
 const Cocktail = require('../models/cocktailModel');
 const AppError = require('../utils/appError');
+const APIFeatures = require('../utils/apiFeatures');
 
 exports.getAllCocktails = async (req, res, next) => {
   try {
     // ------ FIND COCKTAILS WITH JUST ALL OF THESE INGS (VERY JANKY) ------//
-    const pipeline = req.query.ingredient.split(',').map((ing) => ({
-      $match: {
-        'recipe.ingredient': ing,
-      },
-    }));
-    const cocktailsByIng = await Cocktail.aggregate([...pipeline]);
+    // const pipeline = req.query.ingredient.split(',').map((ing) => ({
+    //   $match: {
+    //     'recipe.ingredient': ing,
+    //   },
+    // }));
+    // const cocktailsByIng = await Cocktail.aggregate([...pipeline]);
     ////////////////////////////////////////////////////////////////////
     // ------ FIND COCKTAILS WITH JUST ONE OF THESE INGS ------//
     // const cocktails = await Cocktail.find({
@@ -18,12 +19,20 @@ exports.getAllCocktails = async (req, res, next) => {
     //   },
     // });
     ////////////////////////////////////////////////////////////////////
-    const cocktails = await Cocktail.find().select('name');
+
+    const features = new APIFeatures(Cocktail.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+
+    const cocktails = await features.query;
+
     res.status(200).json({
       status: 'success',
-      AggregateCocktails_results: cocktailsByIng.length,
-      AllCocktails_results: cocktails.length,
-      AggregateCocktails: cocktailsByIng,
+      // AggregateCocktails_results: cocktailsByIng.length,
+      results: cocktails.length,
+      // AggregateCocktails: cocktailsByIng,
       cocktails,
     });
   } catch (err) {
@@ -77,7 +86,6 @@ exports.updateCocktail = async (req, res, next) => {
       runValidators: true,
     });
     if (!cocktail) {
-      console.log("Couldn't find cocktail");
       return next(new AppError("Couldn't find cocktail with that ID", 404));
     }
     res.status(200).json({

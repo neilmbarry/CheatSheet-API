@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const cocktailRouter = require('./routes/cocktailRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -9,6 +10,8 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
+app.use(cors());
+
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
@@ -16,18 +19,13 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 
 app.use((req, res, next) => {
-  console.log('hello from the middleware! 🙋‍♂️');
+  console.log('Hello from the middleware! 🙋‍♂️');
   next();
 });
 
-app.get('/', (req, res, next) => {
-  console.log('On route');
-  res.status(200).json({
-    status: 'success',
-    body: {
-      message: 'I did it!',
-    },
-  });
+app.use((req, res, next) => {
+  req.requestedAt = new Date().toString();
+  next();
 });
 
 app.use('/api/v1/cocktails', cocktailRouter);

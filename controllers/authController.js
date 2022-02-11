@@ -31,6 +31,7 @@ const createJsonWebToken = (id) =>
 
 exports.signUp = async (req, res, next) => {
   try {
+    console.log(req.body);
     const newUser = await User.create(req.body);
     // ---- BELOW TO BE REFACTORED INTO SEPARATE FUNCTION ----- //
     const token = createJsonWebToken(newUser._id);
@@ -102,6 +103,7 @@ exports.protect = async (req, res, next) => {
       req.cookies?.jwt;
     // If it does not exist res 'not logged in / Could not find token'
     if (!token) {
+      console.log(req);
       return next(
         new AppError('You must be logged in to perform this action.', 401)
       );
@@ -127,36 +129,47 @@ exports.protect = async (req, res, next) => {
 
 exports.restrictTo = (...users) => {
   return async (req, res, next) => {
-    if (users.includes('author')) {
-      let isAuthor = false;
-      const model = req.baseUrl.split('/')[3];
-      if (model === 'cocktails') {
-        const cocktail = await Cocktail.findById(req.params.id);
-        console.log(cocktail);
-        const cocktailAuthorId = cocktail.user.toString();
-        isAuthor = req.user.id == cocktailAuthorId ? true : false;
-      }
-      if (model === 'reviews') {
-        const review = await Review.findById(req.params.id);
-        const reviewAuthorId = review.user.toString();
-        isAuthor = req.user.id == reviewAuthorId ? true : false;
-      }
-      if (!isAuthor) {
-        if (users.includes(req.user.role)) {
-          return next();
+    try {
+      if (users.includes('author')) {
+        let isAuthor = false;
+        const model = req.baseUrl.split('/')[3];
+        if (model === 'cocktails') {
+          const cocktail = await Cocktail.findById(req.params.id);
+          if (!cocktail) {
+            return next(new AppError('Cocktail not found', 404));
+          }
+          console.log(cocktail);
+          const cocktailAuthorId = cocktail.user?.toString() || req.user.id;
+          isAuthor = req.user.id == cocktailAuthorId ? true : false;
         }
-        return next(new AppError('You are not the author.', 401));
-      }
-    } else {
-      if (!users.includes(req.user.role)) {
-        return next(new AppError('You do not have permissions.', 401));
-      }
-    }
+        if (model === 'reviews') {
+          const review = await Review.findById(req.params.id);
 
-    // if (req.user.id !== cocktail.author.toString()) {
-    //   return next(new AppError('You are not the author.', 401));
-    // }
-    next();
+          if (!review) {
+            return next(new AppError('Review not found', 404));
+          }
+          const reviewAuthorId = review.user.toString();
+          isAuthor = req.user.id == reviewAuthorId ? true : false;
+        }
+        if (!isAuthor) {
+          if (users.includes(req.user.role)) {
+            return next();
+          }
+          return next(new AppError('You are not the author.', 401));
+        }
+      } else {
+        if (!users.includes(req.user.role)) {
+          return next(new AppError('You do not have permissions.', 401));
+        }
+      }
+
+      // if (req.user.id !== cocktail.author.toString()) {
+      //   return next(new AppError('You are not the author.', 401));
+      // }
+      next();
+    } catch (err) {
+      return next(err);
+    }
   };
 };
 
@@ -266,8 +279,6 @@ exports.resetPassword = async (req, res, next) => {
 // UPDATE PASSWORD (protect)
 exports.updatePassword = async (req, res, next) => {
   try {
-    // route /updatePassword
-    // req.body should include current password, newPassword, andnewPasswordConfirm
     const { currentPassword, newPassword, newPasswordConfirm } = req.body;
     const user = await User.findById(req.user.id).select('+password');
     //Check current password is correct

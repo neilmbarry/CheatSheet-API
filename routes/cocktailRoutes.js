@@ -18,7 +18,8 @@ router.use('/:cocktailId/reviews', reviewRouter);
 
 router.route('/').get(getAllCocktails).post(protect, createCocktail);
 
-router.route('/');
+// Define route to aggregate ingredients
+// router.route('/');
 
 router
   .route('/:id')
