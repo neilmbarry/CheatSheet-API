@@ -1,31 +1,6 @@
 [
   {
-    "name": "Old Fashioned",
-    "cocktailType": "Spirit Forward",
-    "glassType": "Rocks",
-    "recipe": [
-      {
-        "ingredient": "Bourbon",
-        "brand": "Wild Turkey",
-        "quantity": 2,
-        "unit": "oz"
-      },
-      {
-        "ingredient": "Sugar",
-        "quantity": 5,
-        "unit": "ml"
-      },
-      {
-        "ingredient": "Bitters",
-        "brand": "Angostura",
-        "quantity": 2,
-        "unit": "dash"
-      }
-    ],
-    "garnish": "Orange Twist",
-    "method": "Stir all ingredients over ice"
-  },
-  {
+    "_id": "61f6b73bca23b4c73253e638",
     "name": "Daiquiri",
     "cocktailType": "Citrus Forward",
     "glassType": "Coupe",
@@ -34,121 +9,69 @@
         "ingredient": "White Rum",
         "brand": "Havana 3yr",
         "quantity": 2,
-        "unit": "oz"
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e639"
       },
       {
         "ingredient": "Lime Juice",
         "quantity": 0.75,
-        "unit": "oz"
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e63a"
       },
       {
         "ingredient": "Sugar",
         "quantity": 0.5,
-        "unit": "oz"
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e63b"
       }
     ],
     "garnish": "None",
-    "method": "Shake all ingredients and double strain into a chilled coupe"
+    "method": "Shake all ingredients and double strain into a chilled coupe",
+    "slug": "daiquiri",
+    "ratingsAverage": 3.4,
+    "ratingsQuantity": 5,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Classic_Daiquiri_in_Cocktail_Glass.jpg",
+    "id": "61f6b73bca23b4c73253e638"
   },
   {
-    "name": "Penicillin",
-    "cocktailType": "Citrus Forward",
-    "glassType": "Rocks",
-    "recipe": [
-      {
-        "ingredient": "Scotch",
-        "brand": "Dewar's White Label",
-        "quantity": 2,
-        "unit": "oz"
-      },
-      {
-        "ingredient": "Scotch",
-        "brand": "Laphroaig 10yr",
-        "quantity": 0.25,
-        "unit": "oz"
-      },
-      {
-        "ingredient": "Lemon Juice",
-        "quantity": 1,
-        "unit": "oz"
-      },
-      {
-        "ingredient": "Ginger Syrup",
-        "quantity": 0.5,
-        "unit": "oz"
-      },
-      {
-        "ingredient": "Honey Syrup",
-        "quantity": 0.5,
-        "unit": "oz"
-      }
-    ],
-    "garnish": "Candied Ginger",
-    "method": "Shake all ingredients and double strain into a chilled rocks glass"
-  },
-  {
+    "_id": "61f6b73bca23b4c73253e642",
     "name": "Last Word",
     "cocktailType": "Citrus Forward",
     "glassType": "Coupe",
     "recipe": [
       {
         "ingredient": "Gin",
-        "quantity": "0.75",
-        "unit": "oz"
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e643"
       },
       {
         "ingredient": "Luxardo Maraschino",
-        "quantity": "0.75",
-        "unit": "oz"
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e644"
       },
       {
         "ingredient": "Green Chartreuse",
-        "quantity": "0.75",
-        "unit": "oz"
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e645"
       },
       {
         "ingredient": "Lime Juice",
-        "quantity": "0.75",
-        "unit": "oz"
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e646"
       }
     ],
     "garnish": "Cherry",
-    "method": "Shake all ingredients and double strain into a chilled coupe."
+    "method": "Shake all ingredients and double strain into a chilled coupe.",
+    "slug": "last-word",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/The_Last_Word_cocktail_raised.jpg",
+    "id": "61f6b73bca23b4c73253e642"
   },
   {
-    "name": "Paper Plane",
-    "cocktailType": "Citrus Forward",
-    "glassType": "Coupe",
-    "recipe": [
-      {
-        "ingredient": "Bourbon",
-        "brand": "Wild Turkey",
-        "quantity": 0.75,
-        "unit": "oz"
-      },
-      {
-        "ingredient": "Aperol",
-
-        "quantity": 0.75,
-        "unit": "oz"
-      },
-      {
-        "ingredient": "Amaro Nonino",
-
-        "quantity": 0.75,
-        "unit": "oz"
-      },
-      {
-        "ingredient": "Lemon Juice",
-
-        "quantity": 0.75,
-        "unit": "oz"
-      }
-    ],
-    "garnish": "Lemon Twist",
-    "method": "Shake all ingredients and double strain into a chilled coupe."
-  },
-  {
+    "_id": "61f6b73bca23b4c73253e64c",
     "name": "New York Sour",
     "cocktailType": "Sour",
     "glassType": "Rocks",
@@ -157,40 +80,162 @@
         "ingredient": "Bourbon",
         "brand": "Maker's Mark",
         "quantity": 2,
-        "unit": "oz"
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e64d"
       },
       {
         "ingredient": "Red Wine",
-
         "quantity": 0.25,
-        "unit": "oz"
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e64e"
       },
       {
         "ingredient": "Egg White",
-
         "quantity": 1,
-        "unit": "whole"
+        "unit": "whole",
+        "_id": "61f6b73bca23b4c73253e64f"
       },
       {
         "ingredient": "Lemon Juice",
-
         "quantity": 0.75,
-        "unit": "oz"
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e650"
       },
       {
         "ingredient": "Sugar",
-
         "quantity": 0.75,
-        "unit": "oz"
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e651"
       },
       {
         "ingredient": "Angostura Bitters",
-
         "quantity": 2,
-        "unit": "dash"
+        "unit": "dash",
+        "_id": "61f6b73bca23b4c73253e652"
       }
     ],
     "garnish": "Angostura Bitters",
-    "method": "Dry shake all ingredients excluding the wine and then double shake. Double strain into a chilled coupe, and drop angostura bitters and wine over top"
+    "method": "Dry shake all ingredients excluding the wine and then double shake. Double strain into a chilled coupe, and drop angostura bitters and wine over top",
+    "slug": "new-york-sour",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Whiskey_Sour.jpg",
+    "id": "61f6b73bca23b4c73253e64c"
+  },
+  {
+    "_id": "61f6b73bca23b4c73253e634",
+    "name": "Old Fashioned",
+    "cocktailType": "Spirit Forward",
+    "glassType": "Rocks",
+    "recipe": [
+      {
+        "ingredient": "Bourbon",
+        "brand": "Wild Turkey",
+        "quantity": 2,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e635"
+      },
+      {
+        "ingredient": "Sugar",
+        "quantity": 5,
+        "unit": "ml",
+        "_id": "61f6b73bca23b4c73253e636"
+      },
+      {
+        "ingredient": "Bitters",
+        "brand": "Angostura",
+        "quantity": 2,
+        "unit": "dash",
+        "_id": "61f6b73bca23b4c73253e637"
+      }
+    ],
+    "garnish": "Orange Twist",
+    "method": "Stir all ingredients over ice",
+    "slug": "old-fashioned",
+    "ratingsAverage": 4,
+    "ratingsQuantity": 1,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Whiskey_Old_Fashioned1.jpg",
+    "id": "61f6b73bca23b4c73253e634"
+  },
+  {
+    "_id": "61f6b73bca23b4c73253e647",
+    "name": "Paper Plane",
+    "cocktailType": "Citrus Forward",
+    "glassType": "Coupe",
+    "recipe": [
+      {
+        "ingredient": "Bourbon",
+        "brand": "Wild Turkey",
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e648"
+      },
+      {
+        "ingredient": "Aperol",
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e649"
+      },
+      {
+        "ingredient": "Amaro Nonino",
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e64a"
+      },
+      {
+        "ingredient": "Lemon Juice",
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e64b"
+      }
+    ],
+    "garnish": "Lemon Twist",
+    "method": "Shake all ingredients and double strain into a chilled coupe.",
+    "slug": "paper-plane",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Taub_Family_Outpost_-_June_11_2021_-_Sarah_Stierch_02.jpg",
+    "id": "61f6b73bca23b4c73253e647"
+  },
+  {
+    "_id": "61f6b73bca23b4c73253e63c",
+    "name": "Penicillin",
+    "cocktailType": "Citrus Forward",
+    "glassType": "Rocks",
+    "recipe": [
+      {
+        "ingredient": "Scotch",
+        "brand": "Dewar's White Label",
+        "quantity": 2,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e63d"
+      },
+      {
+        "ingredient": "Scotch",
+        "brand": "Laphroaig 10yr",
+        "quantity": 0.25,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e63e"
+      },
+      {
+        "ingredient": "Lemon Juice",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e63f"
+      },
+      {
+        "ingredient": "Ginger Syrup",
+        "quantity": 0.5,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e640"
+      },
+      {
+        "ingredient": "Honey Syrup",
+        "quantity": 0.5,
+        "unit": "oz",
+        "_id": "61f6b73bca23b4c73253e641"
+      }
+    ],
+    "garnish": "Candied Ginger",
+    "method": "Shake all ingredients and double strain into a chilled rocks glass",
+    "slug": "penicillin",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Blended_Margarita.jpg",
+    "id": "61f6b73bca23b4c73253e63c"
   }
 ]
