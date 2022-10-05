@@ -31,7 +31,6 @@ const createJsonWebToken = (id) =>
 
 exports.signUp = async (req, res, next) => {
   try {
-    console.log(req.body);
     const newUser = await User.create(req.body);
     // ---- BELOW TO BE REFACTORED INTO SEPARATE FUNCTION ----- //
     const token = createJsonWebToken(newUser._id);

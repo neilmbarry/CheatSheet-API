@@ -30,7 +30,7 @@
     "slug": "daiquiri",
     "ratingsAverage": 3.4,
     "ratingsQuantity": 5,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Classic_Daiquiri_in_Cocktail_Glass.jpg",
+
     "id": "61f6b73bca23b4c73253e638"
   },
   {
@@ -67,7 +67,7 @@
     "garnish": "Cherry",
     "method": "Shake all ingredients and double strain into a chilled coupe.",
     "slug": "last-word",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/The_Last_Word_cocktail_raised.jpg",
+
     "id": "61f6b73bca23b4c73253e642"
   },
   {
@@ -117,7 +117,6 @@
     "garnish": "Angostura Bitters",
     "method": "Dry shake all ingredients excluding the wine and then double shake. Double strain into a chilled coupe, and drop angostura bitters and wine over top",
     "slug": "new-york-sour",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Whiskey_Sour.jpg",
     "id": "61f6b73bca23b4c73253e64c"
   },
   {
@@ -152,7 +151,6 @@
     "slug": "old-fashioned",
     "ratingsAverage": 4,
     "ratingsQuantity": 1,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Whiskey_Old_Fashioned1.jpg",
     "id": "61f6b73bca23b4c73253e634"
   },
   {
@@ -190,7 +188,6 @@
     "garnish": "Lemon Twist",
     "method": "Shake all ingredients and double strain into a chilled coupe.",
     "slug": "paper-plane",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Taub_Family_Outpost_-_June_11_2021_-_Sarah_Stierch_02.jpg",
     "id": "61f6b73bca23b4c73253e647"
   },
   {
@@ -235,7 +232,6 @@
     "garnish": "Candied Ginger",
     "method": "Shake all ingredients and double strain into a chilled rocks glass",
     "slug": "penicillin",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Blended_Margarita.jpg",
     "id": "61f6b73bca23b4c73253e63c"
   }
 ]
