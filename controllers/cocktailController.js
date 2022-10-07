@@ -41,7 +41,7 @@ exports.getAllCocktails = async (req, res, next) => {
 };
 
 exports.createCocktail = async (req, res, next) => {
-  console.log(req.user._id);
+  console.log(req.body, '<--- create cocktail');
   try {
     const newCocktail = await Cocktail.create({
       name: req.body.name,
@@ -49,7 +49,7 @@ exports.createCocktail = async (req, res, next) => {
       glassType: req.body.glassType,
       recipe: req.body.recipe,
       method: req.body.method,
-      author: req.user._id,
+      user: req.user.id,
     });
 
     res.status(200).json({

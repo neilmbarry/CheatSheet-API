@@ -33,6 +33,7 @@ exports.signUp = async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
     // ---- BELOW TO BE REFACTORED INTO SEPARATE FUNCTION ----- //
+    console.log(newUser.id);
     const token = createJsonWebToken(newUser._id);
     const cookieOptions = {
       expires: new Date(
@@ -119,6 +120,7 @@ exports.protect = async (req, res, next) => {
       );
     }
     // --- ADD CHECK TO SEE IF USER HAS RECENTLY CHANGED PASSWORD --- //
+    console.log(user.id, '<--- protect');
     req.user = user;
     next();
   } catch (err) {
