@@ -13,7 +13,16 @@ const cocktailSchema = new mongoose.Schema(
     slug: {
       type: String,
     },
-    cocktailType: {
+    glass: {
+      type: String,
+      trim: true,
+      required: [true, 'A cocktail must have a recommended glass.'],
+      enum: {
+        values: ['Rocks', 'Coupe', 'Tall', 'Flute', 'Other'],
+        message: 'A cocktail must have a certain glass type.',
+      },
+    },
+    flavour: {
       type: String,
       required: [true, 'A cocktail must have a type.'],
       enum: {
@@ -24,19 +33,12 @@ const cocktailSchema = new mongoose.Schema(
           'Mule',
           'Sour',
           'Other',
+          'Sweet',
         ],
         message: 'A cocktail must be a certain type of cocktail.',
       },
     },
-    glassType: {
-      type: String,
-      trim: true,
-      required: [true, 'A cocktail must have a recommended glass.'],
-      enum: {
-        values: ['Rocks', 'Coupe', 'Tall', 'Flute', 'Other'],
-        message: 'A cocktail must have a certain glass type.',
-      },
-    },
+    garnish: String,
     recipe: {
       type: [
         {
@@ -69,7 +71,7 @@ const cocktailSchema = new mongoose.Schema(
       },
       required: [true, 'A cocktail recipe must have at least one ingredient'],
     },
-    garnish: String,
+
     method: String,
     image: String,
     user: {

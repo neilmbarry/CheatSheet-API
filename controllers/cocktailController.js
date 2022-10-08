@@ -45,10 +45,14 @@ exports.createCocktail = async (req, res, next) => {
   try {
     const newCocktail = await Cocktail.create({
       name: req.body.name,
-      cocktailType: req.body.cocktailType,
-      glassType: req.body.glassType,
+      author: req.body.author,
+      flavour: req.body.flavour,
+      glass: req.body.glass,
       recipe: req.body.recipe,
-      method: req.body.method,
+      ingredients: req.body.ingredients,
+      image: req.body.image,
+      garnish: req.body.garnish,
+
       user: req.user.id,
     });
 
