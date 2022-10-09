@@ -13,6 +13,11 @@ const cocktailSchema = new mongoose.Schema(
     slug: {
       type: String,
     },
+    createdBy: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: [true, 'A cocktail must by created by a user.'],
+    },
     glass: {
       type: String,
       trim: true,
@@ -39,13 +44,13 @@ const cocktailSchema = new mongoose.Schema(
       },
     },
     garnish: String,
-    recipe: {
+    ingredients: {
       type: [
         {
-          ingredient: {
+          name: {
             type: String,
             trim: true,
-            required: [true, 'An ingredient must have a name.'],
+            required: [true, 'An ingredient must have a name.11'],
           },
           brand: String,
           quantity: {
@@ -71,14 +76,25 @@ const cocktailSchema = new mongoose.Schema(
       },
       required: [true, 'A cocktail recipe must have at least one ingredient'],
     },
-
-    method: String,
-    image: String,
-    user: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'User',
-      required: [true, 'A cocktail must have an user (author).'],
+    recipe: {
+      type: [
+        {
+          value: {
+            type: String,
+            required: [true, 'An step must have some text.'],
+          },
+        },
+      ],
+      validate: {
+        validator: function (val) {
+          return val.length > 0;
+        },
+        message: 'A cocktail recipe must have at least one ste[',
+      },
+      required: [true, 'A cocktail recipe must have at least one step'],
     },
+    image: String,
+    author: String,
     ratingsQuantity: Number,
     ratingsAverage: Number,
   },
