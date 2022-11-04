@@ -42,13 +42,19 @@ const userSchema = new mongoose.Schema({
   favorites: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'Cocktail',
+      ref: 'Faves',
     },
   ],
   submissions: [
     {
       type: mongoose.Schema.ObjectId,
       ref: 'Cocktail',
+    },
+  ],
+  reviews: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Reviews',
     },
   ],
   // inventory: [String],

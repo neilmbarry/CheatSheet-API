@@ -140,7 +140,8 @@ exports.restrictTo = (...users) => {
             return next(new AppError('Cocktail not found', 404));
           }
           console.log(cocktail);
-          const cocktailAuthorId = cocktail.user?.toString() || req.user.id;
+          const cocktailAuthorId = cocktail.createdBy.toString();
+          console.log(cocktailAuthorId, '<------ Cocktail author');
           isAuthor = req.user.id == cocktailAuthorId ? true : false;
         }
         if (model === 'reviews') {

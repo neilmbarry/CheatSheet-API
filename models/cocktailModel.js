@@ -8,7 +8,7 @@ const cocktailSchema = new mongoose.Schema(
       required: [true, 'A cocktail must have a name.'],
       trim: true,
       unique: true,
-      maxLength: [40, 'A cocktail name must not exceed 40 characters.'],
+      maxLength: [20, 'A cocktail name must not exceed 20 characters.'],
     },
     slug: {
       type: String,
@@ -23,7 +23,7 @@ const cocktailSchema = new mongoose.Schema(
       trim: true,
       required: [true, 'A cocktail must have a recommended glass.'],
       enum: {
-        values: ['Rocks', 'Coupe', 'Tall', 'Flute', 'Other'],
+        values: ['Rocks', 'Coupe', 'Tall', 'Flute', 'Other', 'Short', 'Rocks'],
         message: 'A cocktail must have a certain glass type.',
       },
     },
@@ -32,13 +32,15 @@ const cocktailSchema = new mongoose.Schema(
       required: [true, 'A cocktail must have a type.'],
       enum: {
         values: [
-          'Spirit Forward',
-          'Citrus Forward',
+          'Boozy',
+          'Citrusy',
           'Collins',
           'Mule',
           'Sour',
           'Other',
           'Sweet',
+          'Bitter',
+          'Spicy',
         ],
         message: 'A cocktail must be a certain type of cocktail.',
       },
@@ -50,7 +52,7 @@ const cocktailSchema = new mongoose.Schema(
           name: {
             type: String,
             trim: true,
-            required: [true, 'An ingredient must have a name.11'],
+            required: [true, 'An ingredient must have a name.'],
           },
           brand: String,
           quantity: {
@@ -61,9 +63,9 @@ const cocktailSchema = new mongoose.Schema(
             type: String,
             required: [true, 'An ingredient must have a unit.'],
             enum: {
-              values: ['oz', 'ml', 'dash', 'pinch', 'whole', 'other'],
+              values: ['Oz', 'Ml', 'Dash', 'pinch', 'whole', 'other'],
               message:
-                'A unit must be one of the following: {oz}, {ml}, {dash}, {pinch}, {other}.',
+                'A unit must be one of the following: {Oz}, {Ml}, {Dash}, {pinch}, {other}.',
             },
           },
         },
@@ -76,7 +78,7 @@ const cocktailSchema = new mongoose.Schema(
       },
       required: [true, 'A cocktail recipe must have at least one ingredient'],
     },
-    recipe: {
+    method: {
       type: [
         {
           value: {
@@ -89,7 +91,7 @@ const cocktailSchema = new mongoose.Schema(
         validator: function (val) {
           return val.length > 0;
         },
-        message: 'A cocktail recipe must have at least one ste[',
+        message: 'A cocktail recipe must have at least one step',
       },
       required: [true, 'A cocktail recipe must have at least one step'],
     },

@@ -20,11 +20,15 @@ exports.getAllCocktails = async (req, res, next) => {
     // });
     ////////////////////////////////////////////////////////////////////
 
+    console.log(req.query);
+
     const features = new APIFeatures(Cocktail.find(), req.query)
       .filter()
       .sort()
       .limitFields()
       .paginate();
+
+    // console.log(features.query);
 
     const cocktails = await features.query;
 
