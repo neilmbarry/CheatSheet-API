@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
       message: 'Passwords are not the same',
     },
   },
-  favorites: [
+  faves: [
     {
       type: mongoose.Schema.ObjectId,
       ref: 'Faves',

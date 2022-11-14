@@ -10,13 +10,20 @@ module.exports = class APIFeatures {
     excludedFields.forEach((el) => delete queryObj[el]);
 
     // 1B. Advanced filtering
-
+    console.log(queryObj);
     console.log(queryObj.nameSearch, '<<<<<<<<<<<<,');
 
     // queryObj.name = { $regex: '^M', $options: 'i' };
 
     if (queryObj.nameSearch) {
       queryObj.name = { $regex: `.*${queryObj.nameSearch}.*`, $options: 'i' };
+    }
+
+    if (queryObj.idArray) {
+      // ['4jkhesrhfleirf','asdjhfaksdjf']
+      queryObj.idArray.forEach((id, i) => {
+        queryObj[`remove${i}_id`] = id;
+      });
     }
 
     // console.log(queryObj);
@@ -27,17 +34,6 @@ module.exports = class APIFeatures {
       /\b(gte|gt|lte|lt)\b/g,
       (match) => `$${match}`
     );
-
-    // const myQuery = `"${queryObj.nameSearch}"`;
-    // const myUpdateQuery = `"${queryObj.nameSearch}"`;
-    // const re = new RegExp(myQuery, 'g');
-
-    // queryString = queryString.replace(/\b(nameSearch)\b/g, `name`);
-    // queryString = queryString.replace(re, myUpdateQuery);
-
-    // console.log(queryString, '<--- queryString');
-
-    // console.log('JSON.parse(QS) ======>', JSON.parse(queryString));
 
     this.query = this.query.find(JSON.parse(queryString));
     return this;

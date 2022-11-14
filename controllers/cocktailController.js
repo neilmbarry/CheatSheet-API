@@ -4,22 +4,6 @@ const APIFeatures = require('../utils/apiFeatures');
 
 exports.getAllCocktails = async (req, res, next) => {
   try {
-    // ------ FIND COCKTAILS WITH JUST ALL OF THESE INGS (VERY JANKY) ------//
-    // const pipeline = req.query.ingredient.split(',').map((ing) => ({
-    //   $match: {
-    //     'recipe.ingredient': ing,
-    //   },
-    // }));
-    // const cocktailsByIng = await Cocktail.aggregate([...pipeline]);
-    ////////////////////////////////////////////////////////////////////
-    // ------ FIND COCKTAILS WITH JUST ONE OF THESE INGS ------//
-    // const cocktails = await Cocktail.find({
-    //   'recipe.ingredient': {
-    //     $in: req.query.ingredient.split(','),
-    //   },
-    // });
-    ////////////////////////////////////////////////////////////////////
-
     console.log(req.query);
 
     const features = new APIFeatures(Cocktail.find(), req.query)
@@ -58,6 +42,7 @@ exports.createCocktail = async (req, res, next) => {
       data: newCocktail,
     });
   } catch (err) {
+    console.log(err, '<<<<<<<<<<');
     return next(err);
   }
 };

@@ -53,6 +53,50 @@ exports.updateUser = async (req, res, next) => {
   }
 };
 
+exports.getFaves = async (req, res, next) => {
+  console.log('GETTING FAVES');
+  try {
+    const { id } = req.user;
+    console.log('ID---->', id);
+    const user = await User.findById(id);
+    if (!user) return next(new AppError('No user with that ID', 404));
+    res.status(200).json({
+      status: 'success',
+      faves: user.faves,
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
+exports.toggleFave = async (req, res, next) => {
+  try {
+    const { id } = req.user;
+    console.log(id, '<=====', req.body.cocktailId);
+    const user = await User.findById(id);
+
+    if (!user) return next(new AppError('No user with that ID', 404));
+    let favourites = user.faves;
+    if (favourites.includes(req.body.cocktailId)) {
+      favourites = favourites.filter((faves) => faves !== req.body.cocktailId);
+    } else {
+      favourites = [...favourites, req.body.cocktailId];
+    }
+
+    console.log({ faves: favourites });
+
+    console.log(JSON.stringify({ faves: favourites }));
+    await User.findByIdAndUpdate(id, JSON.stringify({ faves: favourites }));
+    console.log(user);
+    res.status(200).json({
+      status: 'success',
+      user,
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
 exports.deleteUser = async (req, res, next) => {
   try {
     await User.findByIdAndDelete(req.params.id);
