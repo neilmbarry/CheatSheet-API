@@ -4,7 +4,7 @@ const APIFeatures = require('../utils/apiFeatures');
 
 exports.getAllCocktails = async (req, res, next) => {
   try {
-    console.log(req.query);
+    // console.log(req.query);
 
     const features = new APIFeatures(Cocktail.find(), req.query)
       .filter()
@@ -29,7 +29,7 @@ exports.getAllCocktails = async (req, res, next) => {
 };
 
 exports.createCocktail = async (req, res, next) => {
-  console.log(req.body, '<--- create cocktail');
+  // console.log(req.body, '<--- create cocktail');
   try {
     const newCocktail = await Cocktail.create({
       ...req.body,
@@ -42,7 +42,7 @@ exports.createCocktail = async (req, res, next) => {
       data: newCocktail,
     });
   } catch (err) {
-    console.log(err, '<<<<<<<<<<');
+    // console.log(err, '<<<<<<<<<< error createcocktail');
     return next(err);
   }
 };

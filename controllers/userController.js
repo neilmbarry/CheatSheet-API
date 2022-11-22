@@ -72,8 +72,9 @@ exports.getFaves = async (req, res, next) => {
 exports.toggleFave = async (req, res, next) => {
   try {
     const { id } = req.user;
-    console.log(id, '<=====', req.body.cocktailId);
+    // console.log(id, '<=====', req.body.cocktailId);
     const user = await User.findById(id);
+    console.log(user, 'INITAIL USER');
 
     if (!user) return next(new AppError('No user with that ID', 404));
     let favourites = user.faves;
@@ -85,12 +86,19 @@ exports.toggleFave = async (req, res, next) => {
 
     console.log({ faves: favourites });
 
-    console.log(JSON.stringify({ faves: favourites }));
-    await User.findByIdAndUpdate(id, JSON.stringify({ faves: favourites }));
-    console.log(user);
+    // console.log(JSON.stringify({ faves: favourites }));
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      JSON.stringify({ faves: favourites }),
+      {
+        new: true,
+      }
+    );
+    console.log(updatedUser, 'UPDATED USER');
+    // console.log(user);
     res.status(200).json({
       status: 'success',
-      user,
+      user: updatedUser,
     });
   } catch (err) {
     return next(err);

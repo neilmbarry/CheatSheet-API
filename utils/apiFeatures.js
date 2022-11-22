@@ -10,8 +10,8 @@ module.exports = class APIFeatures {
     excludedFields.forEach((el) => delete queryObj[el]);
 
     // 1B. Advanced filtering
-    console.log(queryObj);
-    console.log(queryObj.nameSearch, '<<<<<<<<<<<<,');
+    // console.log(queryObj);
+    // console.log(queryObj.nameSearch, '<<<<<<<<<<<<,');
 
     // queryObj.name = { $regex: '^M', $options: 'i' };
 
@@ -61,7 +61,7 @@ module.exports = class APIFeatures {
 
   paginate() {
     const page = +this.queryString.page || 1;
-    const limit = +this.queryString.limit || 5;
+    const limit = +this.queryString.limit || 99;
     const skip = (page - 1) * limit;
 
     this.query = this.query.skip(skip).limit(limit);

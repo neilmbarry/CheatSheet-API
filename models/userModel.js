@@ -42,7 +42,6 @@ const userSchema = new mongoose.Schema({
   faves: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'Faves',
     },
   ],
   submissions: [

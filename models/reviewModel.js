@@ -11,6 +11,10 @@ const reviewSchema = mongoose.Schema({
     type: String,
     maxlength: [800, 'A review must have no more than 800 characters.'],
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',

@@ -13,6 +13,10 @@ const cocktailSchema = new mongoose.Schema(
     slug: {
       type: String,
     },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
     createdBy: {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
@@ -109,18 +113,18 @@ const cocktailSchema = new mongoose.Schema(
 // cocktailSchema.virtual('durationWeeks').get(() => 6);
 
 cocktailSchema.virtual('reviews', {
-  ref: 'User',
-  foreignField: 'tour',
+  ref: 'Review',
+  foreignField: 'cocktail',
   localField: '_id',
 });
 
-// cocktailSchema.pre(/^find/, async function (req, res, next) {
-//   this.populate({
-//     path: 'author',
-//     select: 'name',
-//   });
-//   next();
-// });
+cocktailSchema.pre(/^find/, async function (next) {
+  this.populate({
+    path: 'reviews',
+    select: 'name rating summary -cocktail',
+  });
+  next();
+});
 
 cocktailSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
