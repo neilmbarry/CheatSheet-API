@@ -121,7 +121,7 @@ cocktailSchema.virtual('reviews', {
 cocktailSchema.pre(/^find/, async function (next) {
   this.populate({
     path: 'reviews',
-    select: 'name rating summary -cocktail',
+    select: 'name rating summary createdAt -cocktail',
   });
   next();
 });

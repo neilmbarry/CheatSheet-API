@@ -103,7 +103,7 @@ exports.protect = async (req, res, next) => {
       req.cookies?.jwt;
     // If it does not exist res 'not logged in / Could not find token'
     if (!token) {
-      console.log(req);
+      // console.log(req);
       return next(
         new AppError('You must be logged in to perform this action.', 401)
       );

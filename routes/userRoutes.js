@@ -33,11 +33,11 @@ router.use(protect);
 
 router.route('/me').get(getMe, getUser).patch(updateUser);
 
+router.route('/toggleFave').patch(toggleFave);
+
 router.route('/updatePassword').patch(updatePassword);
 
 router.route('/getFaves').get(getFaves);
-
-router.route('/toggleFave').patch(toggleFave);
 
 // Must be ADMIN to access routes below
 router.use(restrictTo('admin'));

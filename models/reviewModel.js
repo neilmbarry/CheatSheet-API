@@ -47,7 +47,7 @@ reviewSchema.statics.calcAverages = async function (cocktailId) {
       },
     },
   ]);
-  console.log(stats);
+
   if (stats) {
     await Cocktail.findByIdAndUpdate(cocktailId, {
       ratingsQuantity: stats[0].ratingsQuantity,

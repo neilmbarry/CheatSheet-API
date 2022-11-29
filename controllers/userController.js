@@ -43,6 +43,7 @@ exports.createUser = async (req, res, next) => {
 exports.updateUser = async (req, res, next) => {
   try {
     const userId = req.params.id || req.user.id;
+    console.log('UPDATE USER ID', userId);
     await User.findByIdAndUpdate(userId, req.body);
     res.status(200).json({
       status: 'success',
@@ -53,6 +54,40 @@ exports.updateUser = async (req, res, next) => {
   }
 };
 
+exports.toggleFave = async (req, res, next) => {
+  try {
+    const { id } = req.user;
+
+    const { cocktailId } = req.body;
+    const user = await User.findById(id);
+    console.log(user, 'INITAIL USER');
+
+    if (!user) return next(new AppError('No user with that ID', 404));
+    let favourites = user.faves;
+    if (favourites.includes(cocktailId)) {
+      favourites = favourites.filter(
+        (faves) => faves.toString() !== cocktailId
+      );
+    } else {
+      favourites = [...favourites, cocktailId];
+    }
+
+    // console.log(JSON.stringify({ faves: favourites }));
+    const body = { faves: favourites };
+
+    const updatedUser = await User.findByIdAndUpdate(id, body, {
+      new: true,
+    });
+    console.log(updatedUser, 'UPDATED USER');
+    // console.log(user);
+    res.status(200).json({
+      status: 'success',
+      user: updatedUser,
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
 exports.getFaves = async (req, res, next) => {
   console.log('GETTING FAVES');
   try {
@@ -63,42 +98,6 @@ exports.getFaves = async (req, res, next) => {
     res.status(200).json({
       status: 'success',
       faves: user.faves,
-    });
-  } catch (err) {
-    return next(err);
-  }
-};
-
-exports.toggleFave = async (req, res, next) => {
-  try {
-    const { id } = req.user;
-    // console.log(id, '<=====', req.body.cocktailId);
-    const user = await User.findById(id);
-    console.log(user, 'INITAIL USER');
-
-    if (!user) return next(new AppError('No user with that ID', 404));
-    let favourites = user.faves;
-    if (favourites.includes(req.body.cocktailId)) {
-      favourites = favourites.filter((faves) => faves !== req.body.cocktailId);
-    } else {
-      favourites = [...favourites, req.body.cocktailId];
-    }
-
-    console.log({ faves: favourites });
-
-    // console.log(JSON.stringify({ faves: favourites }));
-    const updatedUser = await User.findByIdAndUpdate(
-      id,
-      JSON.stringify({ faves: favourites }),
-      {
-        new: true,
-      }
-    );
-    console.log(updatedUser, 'UPDATED USER');
-    // console.log(user);
-    res.status(200).json({
-      status: 'success',
-      user: updatedUser,
     });
   } catch (err) {
     return next(err);

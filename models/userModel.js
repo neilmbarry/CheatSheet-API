@@ -42,6 +42,8 @@ const userSchema = new mongoose.Schema({
   faves: [
     {
       type: mongoose.Schema.ObjectId,
+      ref: 'Cocktail',
+      // type: String,
     },
   ],
   submissions: [
@@ -78,6 +80,14 @@ userSchema.pre('save', async function (next) {
 userSchema.pre('save', function (next) {
   if (!this.isModified('password') || this.isNew) return next();
   this.passwordChangedAt = Date.now();
+  next();
+});
+
+userSchema.pre(/^find/, async function (next) {
+  this.populate({
+    path: 'faves',
+    // select: 'name rating summary createdAt -cocktail',
+  });
   next();
 });
 
