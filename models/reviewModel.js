@@ -28,10 +28,12 @@ const reviewSchema = mongoose.Schema({
 });
 
 reviewSchema.pre(/^find/, async function (next) {
+  console.log('hangin on in reviews');
   this.populate({
     path: 'user',
     select: 'name',
   });
+  next();
 });
 
 reviewSchema.statics.calcAverages = async function (cocktailId) {

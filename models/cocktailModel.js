@@ -119,6 +119,7 @@ cocktailSchema.virtual('reviews', {
 });
 
 cocktailSchema.pre(/^find/, async function (next) {
+  console.log('hangin on pre find cocktail schema');
   this.populate({
     path: 'reviews',
     select: 'name rating summary createdAt -cocktail',

@@ -64,10 +64,13 @@ exports.login = async (req, res, next) => {
     if (!email || !password) {
       return next(new AppError('Please provide an email and password', 404));
     }
+
     const user = await User.findOne({ email }).select('+password');
+
     if (!user || !(await user.isCorrectPassword(password))) {
       return next(new AppError('Incorrect email or password.'));
     }
+
     // ---- BELOW TO BE REFACTORED INTO SEPARATE FUNCTION ----- //
     const token = createJsonWebToken(user._id);
     const cookieOptions = {
@@ -81,6 +84,7 @@ exports.login = async (req, res, next) => {
     }
     user.password = undefined;
     res.cookie('jwt', token, cookieOptions);
+
     res.status(201).json({
       status: 'success',
       message: 'User logged in.',

@@ -14,8 +14,10 @@ exports.getAllCocktails = async (req, res, next) => {
 
     // console.log(features.query);
 
-    const cocktails = await features.query;
+    console.log('Hello from the getAllCocktail! 🙋‍♂️');
 
+    const cocktails = await features.query;
+    console.log('Hello from the getAllCocktail! 🙋‍♂️');
     res.status(200).json({
       status: 'success',
       // AggregateCocktails_results: cocktailsByIng.length,

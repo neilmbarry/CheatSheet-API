@@ -29,7 +29,17 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/v1/cocktails', cocktailRouter);
+app.use((req, res, next) => {
+  console.log('Hello from here! 🙋‍♂️');
+  next();
+});
 app.use('/api/v1/users', userRouter);
+
+app.use((req, res, next) => {
+  console.log('Hello from here! 🙋‍♂️');
+  next();
+});
+
 app.use('/api/v1/reviews', reviewRouter);
 
 app.all('*', (req, res, next) => {
