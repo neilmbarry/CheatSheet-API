@@ -118,14 +118,14 @@ cocktailSchema.virtual('reviews', {
   localField: '_id',
 });
 
-cocktailSchema.pre(/^find/, async function (next) {
-  console.log('hangin on pre find cocktail schema');
-  this.populate({
-    path: 'reviews',
-    select: 'name rating summary createdAt -cocktail',
-  });
-  next();
-});
+// cocktailSchema.pre(/^find/, async function (next) {
+//   console.log('hangin on pre find cocktail schema');
+//   this.populate({
+//     path: 'reviews',
+//     select: 'name rating summary createdAt -cocktail',
+//   });
+//   next();
+// });
 
 cocktailSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });

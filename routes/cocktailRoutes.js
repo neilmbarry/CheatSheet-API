@@ -22,7 +22,7 @@ router.route('/').get(getAllCocktails).post(protect, createCocktail);
 // router.route('/');
 
 router
-  .route('/:id')
+  .route('/:slug')
   .get(getCocktail)
   .patch(protect, restrictTo('admin', 'author'), updateCocktail)
   .delete(protect, restrictTo('admin', 'author'), deleteCocktail);

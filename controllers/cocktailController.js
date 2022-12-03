@@ -51,8 +51,8 @@ exports.createCocktail = async (req, res, next) => {
 
 exports.getCocktail = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const cocktail = await Cocktail.findById(id);
+    const { slug } = req.params;
+    const cocktail = await Cocktail.findOne({ slug }).populate('reviews');
     if (!cocktail) {
       return next(new AppError('Could not find cocktail with that ID', 404));
     }
@@ -68,8 +68,8 @@ exports.getCocktail = async (req, res, next) => {
 
 exports.updateCocktail = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const cocktail = await Cocktail.findByIdAndUpdate(id, req.body, {
+    const { slug } = req.params;
+    const cocktail = await Cocktail.findOneAndUpdate({ slug }, req.body, {
       new: true,
       runValidators: true,
     });
@@ -88,8 +88,8 @@ exports.updateCocktail = async (req, res, next) => {
 
 exports.deleteCocktail = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    await Cocktail.findByIdAndDelete(id);
+    const { slug } = req.params;
+    await Cocktail.findOneAndDelete({ slug });
     res.status(204).json({
       status: 'success',
       message: 'Deleted cocktail',
