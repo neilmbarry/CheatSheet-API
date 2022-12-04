@@ -9,19 +9,27 @@ exports.getAllCocktails = async (req, res, next) => {
     const features = new APIFeatures(Cocktail.find(), req.query)
       .filter()
       .sort()
-      .limitFields()
-      .paginate();
+      .limitFields();
+    // .paginate();
 
     // console.log(features.query);
 
-    console.log('Hello from the getAllCocktail! 🙋‍♂️');
+    const allMatchingCocktails = await features.query;
 
-    const cocktails = await features.query;
+    const featuresPaginated = new APIFeatures(Cocktail.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+
+    const cocktails = await featuresPaginated.query;
     console.log('Hello from the getAllCocktail! 🙋‍♂️');
     res.status(200).json({
       status: 'success',
       // AggregateCocktails_results: cocktailsByIng.length,
-      results: cocktails.length,
+      page: +req.query.page,
+      searchTerm: req.query.nameSearch,
+      results: allMatchingCocktails.length,
       // AggregateCocktails: cocktailsByIng,
       cocktails,
     });
