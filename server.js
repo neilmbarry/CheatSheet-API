@@ -14,7 +14,7 @@ mongoose.connect(DB).then(() => {
   console.log('Connected to MongoDB');
 });
 
-const server = app.listen(8000, () => {
+const server = app.listen(process.env.PORT || 8000, () => {
   console.log(`Starting ${process.env.NODE_ENV.toUpperCase()} server...`);
   console.log(`Listening on port ${process.env.PORT}...`);
 });
