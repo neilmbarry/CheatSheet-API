@@ -64,8 +64,10 @@ exports.toggleFave = async (req, res, next) => {
       favourites = favourites.filter(
         (faves) => faves.toString() !== cocktailId
       );
+      req.faveAdded = false;
     } else {
       favourites = [...favourites, cocktailId];
+      req.faveAdded = true;
     }
 
     const body = { faves: favourites };
@@ -76,6 +78,7 @@ exports.toggleFave = async (req, res, next) => {
     res.status(200).json({
       status: 'success',
       user: updatedUser,
+      faveAdded: req.faveAdded,
     });
   } catch (err) {
     return next(err);

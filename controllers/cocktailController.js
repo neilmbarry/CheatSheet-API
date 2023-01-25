@@ -4,7 +4,7 @@ const APIFeatures = require('../utils/apiFeatures');
 
 exports.getAllCocktails = async (req, res, next) => {
   try {
-    // console.log(req.query);
+    console.log(req.query, 'req.query');
 
     const features = new APIFeatures(Cocktail.find(), req.query)
       .filter()
@@ -67,7 +67,7 @@ exports.getCocktail = async (req, res, next) => {
     res.status(200).json({
       status: 'success',
       message: 'Got cocktail',
-      data: cocktail,
+      cocktail,
     });
   } catch (err) {
     return next(err);

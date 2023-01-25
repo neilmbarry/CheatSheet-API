@@ -67,7 +67,7 @@ const cocktailSchema = new mongoose.Schema(
             type: String,
             required: [true, 'An ingredient must have a unit.'],
             enum: {
-              values: ['Oz', 'Ml', 'Dash', 'pinch', 'whole', 'other'],
+              values: ['oz', 'ml', 'dash', 'pinch', 'whole', 'other'],
               message:
                 'A unit must be one of the following: {Oz}, {Ml}, {Dash}, {pinch}, {other}.',
             },

@@ -6,6 +6,7 @@ module.exports = class APIFeatures {
 
   filter() {
     const queryObj = { ...this.queryString };
+    console.log(queryObj, 'queryObj');
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach((el) => delete queryObj[el]);
 
@@ -26,9 +27,11 @@ module.exports = class APIFeatures {
       });
     }
 
-    // console.log(queryObj);
+    console.log(queryObj, 'queryObj');
 
     let queryString = JSON.stringify(queryObj);
+
+    console.log(queryString, 'queryString');
 
     queryString = queryString.replace(
       /\b(gte|gt|lte|lt)\b/g,
@@ -41,8 +44,13 @@ module.exports = class APIFeatures {
 
   sort() {
     if (this.queryString.sort) {
-      const sortBy = this.queryString.sort.split(',').join(' ');
-      this.query = this.query.sort(sortBy);
+      const sortBy = this.queryString.sort;
+      if (sortBy === 'rating') {
+        this.query = this.query.sort('-ratingsAverage -ratingsQuantity');
+      }
+      if (sortBy === 'newest') {
+        this.query = this.query.sort('-createdAt');
+      }
     } else {
       this.query = this.query.sort('name');
     }

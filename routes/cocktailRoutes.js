@@ -10,11 +10,7 @@ const {
 
 const { protect, restrictTo } = require('../controllers/authController');
 
-const reviewRouter = require('./reviewRoutes');
-
 const router = express.Router();
-
-router.use('/:cocktailId/reviews', reviewRouter);
 
 router.route('/').get(getAllCocktails).post(protect, createCocktail);
 
