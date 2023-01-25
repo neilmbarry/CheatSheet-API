@@ -10,7 +10,13 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
-app.use(cors());
+const origin = true ? 'https://simp-app.vercel.app' : 'http://localhost:3000';
+
+app.use(
+  cors({
+    origin,
+  })
+);
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
