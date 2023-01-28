@@ -10,9 +10,10 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
-const origin = true
-  ? 'https://cheat-sheet-app.vercel.app'
-  : 'http://localhost:3000';
+const origin =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://cheat-sheet-app.vercel.app';
 
 app.use(
   cors({

@@ -48,7 +48,7 @@ exports.signUp = async (req, res, next) => {
     res.cookie('jwt', token, cookieOptions);
     res.status(201).json({
       status: 'success',
-      message: 'User is signed up',
+      message: 'You have been signed up!',
       newUser,
       token,
     });
