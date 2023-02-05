@@ -15,9 +15,7 @@ const {
   signUp,
   login,
   protect,
-  forgotPassword,
-  resetPassword,
-  updatePassword,
+
   restrictTo,
 } = require('../controllers/authController');
 
@@ -29,8 +27,6 @@ router.use((req, res, next) => {
   next();
 });
 router.route('/login').post(login);
-router.route('/forgotPassword').post(forgotPassword);
-router.route('/resetPassword/:resetToken').patch(resetPassword);
 
 // Must be logged in to access routes below
 router.use(protect);
@@ -38,8 +34,6 @@ router.use(protect);
 router.route('/me').get(getMe, getUser).patch(updateUser);
 
 router.route('/toggleFave').patch(toggleFave);
-
-router.route('/updatePassword').patch(updatePassword);
 
 router.route('/getFaves').get(getFaves);
 

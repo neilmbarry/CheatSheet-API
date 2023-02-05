@@ -12,6 +12,7 @@ const cocktailSchema = new mongoose.Schema(
     },
     slug: {
       type: String,
+      unique: true,
     },
     createdAt: {
       type: Date,
@@ -61,15 +62,12 @@ const cocktailSchema = new mongoose.Schema(
           brand: String,
           quantity: {
             type: Number,
-            required: [true, 'An ingredient must have a quantity.'],
           },
           unit: {
             type: String,
-            required: [true, 'An ingredient must have a unit.'],
+
             enum: {
               values: ['oz', 'ml', 'dash', 'pinch', 'whole', 'other'],
-              message:
-                'A unit must be one of the following: {Oz}, {Ml}, {Dash}, {pinch}, {other}.',
             },
           },
         },
@@ -118,22 +116,12 @@ cocktailSchema.virtual('reviews', {
   localField: '_id',
 });
 
-// cocktailSchema.pre(/^find/, async function (next) {
-//   console.log('hangin on pre find cocktail schema');
-//   this.populate({
-//     path: 'reviews',
-//     select: 'name rating summary createdAt -cocktail',
-//   });
-//   next();
-// });
-
 cocktailSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
-  // this.recipe.forEach(function (ing) {
-  //   return (ing.slug = slugify(ing.ingredient, {
-  //     lower: true,
-  //   }));
-  // });
+  next();
+});
+cocktailSchema.pre('updateOne', function (next) {
+  this.slug = slugify(this.name, { lower: true });
   next();
 });
 

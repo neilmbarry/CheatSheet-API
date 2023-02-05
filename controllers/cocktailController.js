@@ -23,14 +23,11 @@ exports.getAllCocktails = async (req, res, next) => {
       .paginate();
 
     const cocktails = await featuresPaginated.query;
-    console.log('Hello from the getAllCocktail! 🙋‍♂️');
     res.status(200).json({
       status: 'success',
-      // AggregateCocktails_results: cocktailsByIng.length,
       page: +req.query.page,
       searchTerm: req.query.nameSearch,
       results: allMatchingCocktails.length,
-      // AggregateCocktails: cocktailsByIng,
       cocktails,
     });
   } catch (err) {
@@ -39,7 +36,6 @@ exports.getAllCocktails = async (req, res, next) => {
 };
 
 exports.createCocktail = async (req, res, next) => {
-  // console.log(req.body, '<--- create cocktail');
   try {
     const newCocktail = await Cocktail.create({
       ...req.body,
@@ -48,11 +44,10 @@ exports.createCocktail = async (req, res, next) => {
 
     res.status(200).json({
       status: 'success',
-      message: 'Added cocktail',
-      data: newCocktail,
+      message: 'Your cocktail has been added!',
+      newCocktail,
     });
   } catch (err) {
-    // console.log(err, '<<<<<<<<<< error createcocktail');
     return next(err);
   }
 };
@@ -66,7 +61,7 @@ exports.getCocktail = async (req, res, next) => {
     }
     res.status(200).json({
       status: 'success',
-      message: 'Got cocktail',
+      message: 'Got cocktail!',
       cocktail,
     });
   } catch (err) {
@@ -76,6 +71,7 @@ exports.getCocktail = async (req, res, next) => {
 
 exports.updateCocktail = async (req, res, next) => {
   try {
+    console.log(req.params);
     const { slug } = req.params;
     const cocktail = await Cocktail.findOneAndUpdate({ slug }, req.body, {
       new: true,
@@ -86,8 +82,8 @@ exports.updateCocktail = async (req, res, next) => {
     }
     res.status(200).json({
       status: 'success',
-      message: 'Updated cocktail',
-      data: cocktail,
+      message: 'Your cocktail was updated!',
+      updatedCocktail: cocktail,
     });
   } catch (err) {
     return next(err);
@@ -95,12 +91,31 @@ exports.updateCocktail = async (req, res, next) => {
 };
 
 exports.deleteCocktail = async (req, res, next) => {
+  console.log('deleting cokctila');
   try {
     const { slug } = req.params;
+    console.log('delete cocktail ', slug);
     await Cocktail.findOneAndDelete({ slug });
     res.status(204).json({
       status: 'success',
       message: 'Deleted cocktail',
+      deletedCocktail: true,
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
+exports.randomCocktail = async (req, res, next) => {
+  try {
+    const cocktails = await Cocktail.find();
+    const cocktailsLength = cocktails.length;
+    const randomIndex = Math.floor(Math.random() * cocktailsLength);
+    const randomCocktail = await cocktails[randomIndex].populate('reviews');
+    res.status(200).json({
+      status: 'success',
+      message: 'A random cocktail just for you!',
+      cocktail: randomCocktail,
     });
   } catch (err) {
     return next(err);

@@ -61,6 +61,7 @@ exports.toggleFave = async (req, res, next) => {
     if (!user) return next(new AppError('No user with that ID', 404));
     let favourites = user.faves;
     if (favourites.includes(cocktailId)) {
+      console.log(favourites);
       favourites = favourites.filter(
         (faves) => faves.toString() !== cocktailId
       );

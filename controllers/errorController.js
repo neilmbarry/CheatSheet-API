@@ -35,7 +35,7 @@ const handleTokenExpired = (err) => {
 };
 
 const handleDuplicateError = (err) => {
-  const message = `{${err.keyValue.name}} already exists. Please choose a different name`;
+  const message = `{${err.keyValue.name}} already exists. Please choose a different username`;
   return new AppError(message, err.statusCode);
 };
 

@@ -1,23 +1,16 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
+
 const bcrypt = require('bcryptjs');
-const crypto = require('crypto');
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       trim: true,
-      required: [true, 'A user must have a name.'],
+      required: [true, 'A user must have a username.'],
+      unique: true,
     },
-    email: {
-      type: String,
-      trim: true,
-      required: [true, 'A user must have an email address.'],
-      lowercase: true,
-      unique: [true, 'This email address is already in use.'],
-      validate: [validator.isEmail, 'Please provide a valid email.'],
-    },
+
     role: {
       type: String,
       enum: ['user', 'admin'],
@@ -30,16 +23,7 @@ const userSchema = new mongoose.Schema(
       minlength: [8, 'A user password must be at least 8 characters long.'],
       select: false,
     },
-    passwordConfirm: {
-      type: String,
-      required: [true, 'Please confirm your password.'],
-      validate: {
-        validator: function (el) {
-          return el === this.password;
-        },
-        message: 'Passwords are not the same',
-      },
-    },
+
     faves: [
       {
         type: mongoose.Schema.ObjectId,
@@ -59,11 +43,6 @@ const userSchema = new mongoose.Schema(
         ref: 'Reviews',
       },
     ],
-    // inventory: [String],
-    // reviews: [String],
-    passwordChangedAt: Date,
-    passwordResetToken: String,
-    passwordResetExpires: Date,
     active: {
       type: Boolean,
       default: true,
@@ -79,7 +58,6 @@ const userSchema = new mongoose.Schema(
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   this.password = await bcrypt.hash(this.password, 12);
-  this.passwordConfirm = undefined;
   next();
 });
 
@@ -91,16 +69,6 @@ userSchema.pre('save', function (next) {
 
 userSchema.methods.isCorrectPassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
-};
-
-userSchema.methods.createPasswordResetToken = function () {
-  const resetToken = crypto.randomBytes(32).toString('hex');
-  this.passwordResetToken = crypto
-    .createHash('sha256')
-    .update(resetToken)
-    .digest('hex');
-  this.passwordResetExpires = Date.now() + 600000;
-  return resetToken;
 };
 
 userSchema.methods.tokenExpired = function () {
