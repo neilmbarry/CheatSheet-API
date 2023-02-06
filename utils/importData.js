@@ -26,15 +26,24 @@ const cocktails = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/dummyCocktails.json`),
   'utf-8'
 );
+const testCocktails = JSON.parse(
+  fs.readFileSync(`${__dirname}/../dev-data/testCocktails.json`),
+  'utf-8'
+);
+const testReviews = JSON.parse(
+  fs.readFileSync(`${__dirname}/../dev-data/testReviews.json`),
+  'utf-8'
+);
 
 const addData = async () => {
   try {
     console.log('Importing cocktails...');
-    await Cocktail.create(cocktails);
+    // await Cocktail.create(cocktails);
+    await Cocktail.create(testCocktails);
     console.log('Cocktails imported!');
-    console.log('Importing users...');
-    await User.create(users);
-    console.log('Users imported!');
+    // console.log('Importing users...');
+    // await User.create(users);
+    // console.log('Users imported!');
     process.exit(1);
   } catch (err) {
     console.log(err);
@@ -87,12 +96,16 @@ const resetData = async () => {
 
     await Cocktail.deleteMany();
     await User.deleteMany();
+    await Review.deleteMany();
     console.log('Data deleted!');
     console.log('Importing data...');
-    await Cocktail.create(cocktails, {
+    await Cocktail.create(testCocktails, {
       validateBeforeSave: false,
     });
-    await User.create(users);
+    await Review.create(testReviews, {
+      validateBeforeSave: false,
+    });
+    // await User.create(users);
     console.log('Data imported!');
     process.exit(1);
   } catch (err) {

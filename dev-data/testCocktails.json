@@ -1,0 +1,495 @@
+[
+  {
+    "_id": "63e01130e297adf6e26ccccf",
+    "name": "Dark & Stormy",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Short",
+    "flavour": "Citrusy",
+    "garnish": "Pineapple Slice",
+    "ingredients": [
+      {
+        "name": "Dark Rum",
+        "brand": "Gosling's",
+        "quantity": 60,
+        "unit": "ml",
+        "_id": "63e01130e297adf6e26cccd0"
+      },
+      {
+        "name": "Ginger Beer",
+        "quantity": 3,
+        "unit": "oz",
+        "_id": "63e01130e297adf6e26cccd1"
+      },
+      {
+        "name": "Lime Juice",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e01130e297adf6e26cccd2"
+      }
+    ],
+    "method": [
+      {
+        "value": "Build in a short glass.",
+        "_id": "63e01130e297adf6e26cccd3"
+      },
+      {
+        "value": "Stir.",
+        "_id": "63e01130e297adf6e26cccd4"
+      },
+      {
+        "value": "Garnish with a pineapple slice.",
+        "_id": "63e01130e297adf6e26cccd5"
+      }
+    ],
+    "image": "/static/media/cock.0cbe7be3133209497208.jpg",
+    "author": "John Smith",
+    "createdAt": "2023-02-05T20:27:28.957Z",
+    "slug": "dark-and-stormy",
+    "ratingsAverage": 3.3333333333333335,
+    "ratingsQuantity": 3,
+    "id": "63e01130e297adf6e26ccccf"
+  },
+  {
+    "_id": "63e014bae297adf6e26cd1da",
+    "name": "Last Word",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Coupe",
+    "flavour": "Citrusy",
+    "garnish": "",
+    "ingredients": [
+      {
+        "name": "Gin",
+        "brand": "Bombay",
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "63e014bae297adf6e26cd1db"
+      },
+      {
+        "name": "Green Chartreuse",
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "63e014bae297adf6e26cd1dc"
+      },
+      {
+        "name": "Luxardo Maraschino",
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "63e014bae297adf6e26cd1dd"
+      },
+      {
+        "name": "Lime Juice",
+        "quantity": 0.75,
+        "unit": "oz",
+        "_id": "63e014bae297adf6e26cd1de"
+      }
+    ],
+    "method": [
+      {
+        "value": "Shake all ingredients over ice.",
+        "_id": "63e014bae297adf6e26cd1df"
+      },
+      {
+        "value": "Strain into a chilled coupe.",
+        "_id": "63e014bae297adf6e26cd1e0"
+      },
+      {
+        "value": "Serve.",
+        "_id": "63e014bae297adf6e26cd1e1"
+      }
+    ],
+    "image": "/static/media/cock8.53622b3fbb27e8a719ac.jpg",
+    "author": "Tony Jacobs",
+    "createdAt": "2023-02-05T20:42:34.932Z",
+    "slug": "last-word",
+    "ratingsAverage": 4.25,
+    "ratingsQuantity": 4,
+    "id": "63e014bae297adf6e26cd1da"
+  },
+  {
+    "_id": "63e01b4eaae8dd3abd1d37e0",
+    "name": "Long Island Iced Tea",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Tall",
+    "flavour": "Sweet",
+    "garnish": "Lemon Twist",
+    "ingredients": [
+      {
+        "name": "Vodka",
+        "brand": "",
+        "quantity": 0.5,
+        "unit": "oz",
+        "_id": "63e01b4eaae8dd3abd1d37e1"
+      },
+      {
+        "name": "Gin",
+        "quantity": 0.5,
+        "unit": "oz",
+        "_id": "63e01b4eaae8dd3abd1d37e2"
+      },
+      {
+        "name": "Tequila",
+        "brand": "",
+        "quantity": 0.5,
+        "unit": "oz",
+        "_id": "63e01b4eaae8dd3abd1d37e3"
+      },
+      {
+        "name": "Rum",
+        "brand": "",
+        "quantity": 0.5,
+        "unit": "oz",
+        "_id": "63e01b4eaae8dd3abd1d37e4"
+      },
+      {
+        "name": "Coka",
+        "quantity": 2,
+        "unit": "oz",
+        "_id": "63e01b4eaae8dd3abd1d37e5"
+      },
+      {
+        "name": "Lemon Juice",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e01b4eaae8dd3abd1d37e6"
+      }
+    ],
+    "method": [
+      {
+        "value": "Build into a tall glass over ice.",
+        "_id": "63e01b4eaae8dd3abd1d37e7"
+      },
+      {
+        "value": "Stir briefly and serve.",
+        "_id": "63e01b4eaae8dd3abd1d37e8"
+      }
+    ],
+    "image": "/static/media/cock11.244f5e8c7b184b4b4815.jpg",
+    "author": "Jason",
+    "createdAt": "2023-02-05T21:10:38.233Z",
+    "slug": "long-island-iced-tea",
+    "ratingsAverage": 4,
+    "ratingsQuantity": 1,
+    "id": "63e01b4eaae8dd3abd1d37e0"
+  },
+  {
+    "_id": "63e0167fe297adf6e26cd6c2",
+    "name": "Manhattan",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Coupe",
+    "flavour": "Boozy",
+    "garnish": "Cherry",
+    "ingredients": [
+      {
+        "name": "Rye",
+        "brand": "Rittenhouse",
+        "quantity": 2,
+        "unit": "oz",
+        "_id": "63e0167fe297adf6e26cd6c3"
+      },
+      {
+        "name": "Sweet Vermouth",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e0167fe297adf6e26cd6c4"
+      },
+      {
+        "name": "Bitters",
+        "brand": "Angostura",
+        "quantity": 3,
+        "unit": "dash",
+        "_id": "63e0167fe297adf6e26cd6c5"
+      }
+    ],
+    "method": [
+      {
+        "value": "Stir ingredients over ice for 20 seconds.",
+        "_id": "63e0167fe297adf6e26cd6c6"
+      },
+      {
+        "value": "Strain into a chilled coupe.",
+        "_id": "63e0167fe297adf6e26cd6c7"
+      },
+      {
+        "value": "Garnish with a cherry and serve.",
+        "_id": "63e0167fe297adf6e26cd6c8"
+      }
+    ],
+    "image": "/static/media/cock9.fd3a597a407d6b862a9c.jpg",
+    "author": "Ronald",
+    "createdAt": "2023-02-05T20:50:07.952Z",
+    "slug": "manhattan",
+    "ratingsAverage": 2.6666666666666665,
+    "ratingsQuantity": 3,
+    "id": "63e0167fe297adf6e26cd6c2"
+  },
+  {
+    "_id": "63e01830e297adf6e26cdd08",
+    "name": "Martini",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Coupe",
+    "flavour": "Boozy",
+    "garnish": "Olives",
+    "ingredients": [
+      {
+        "name": "Vodka",
+        "brand": "Grey Goose",
+        "quantity": 2,
+        "unit": "oz",
+        "_id": "63e01830e297adf6e26cdd09"
+      },
+      {
+        "name": "Dry Vermouth",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e01830e297adf6e26cdd0a"
+      }
+    ],
+    "method": [
+      {
+        "value": "Stir ingredients over ice.",
+        "_id": "63e01830e297adf6e26cdd0b"
+      },
+      {
+        "value": "Strain into a chilled coupe.",
+        "_id": "63e01830e297adf6e26cdd0c"
+      },
+      {
+        "value": "Add olives and enjoy.",
+        "_id": "63e01830e297adf6e26cdd0d"
+      }
+    ],
+    "image": "/static/media/cock15.9600bbfcf1b955b52edd.jpg",
+    "author": "Sam",
+    "createdAt": "2023-02-05T20:57:20.635Z",
+    "slug": "martini",
+    "ratingsAverage": 3.6666666666666665,
+    "ratingsQuantity": 3,
+    "id": "63e01830e297adf6e26cdd08"
+  },
+  {
+    "_id": "63e01234e297adf6e26ccd95",
+    "name": "Negroni",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Rocks",
+    "flavour": "Bitter",
+    "garnish": "Orange Twist",
+    "ingredients": [
+      {
+        "name": "Gin",
+        "brand": "Bombay",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e01234e297adf6e26ccd96"
+      },
+      {
+        "name": "Campari",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e01234e297adf6e26ccd97"
+      },
+      {
+        "name": "Sweet Vermouth",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e01234e297adf6e26ccd98"
+      }
+    ],
+    "method": [
+      {
+        "value": "Add ingredients to a mixing jar.",
+        "_id": "63e01234e297adf6e26ccd99"
+      },
+      {
+        "value": "Add ice and stir for 20 seconds",
+        "_id": "63e01234e297adf6e26ccd9a"
+      },
+      {
+        "value": "Strain in to rocks glass over ice.",
+        "_id": "63e01234e297adf6e26ccd9b"
+      },
+      {
+        "value": "Garnish with an orange twist.",
+        "_id": "63e01234e297adf6e26ccd9c"
+      }
+    ],
+    "image": "/static/media/cock17.d645d7484d88284bc94d.jpg",
+    "author": "Nigel Thornberry",
+    "createdAt": "2023-02-05T20:31:48.965Z",
+    "slug": "negroni",
+    "ratingsAverage": 4.666666666666667,
+    "ratingsQuantity": 3,
+    "id": "63e01234e297adf6e26ccd95"
+  },
+  {
+    "_id": "63e01079e297adf6e26ccbfc",
+    "name": "Old Fashioned",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Short",
+    "flavour": "Boozy",
+    "garnish": "Orange Twist",
+    "ingredients": [
+      {
+        "name": "Bourbon",
+        "brand": "Maker's Mark",
+        "quantity": 2,
+        "unit": "oz",
+        "_id": "63e01079e297adf6e26ccbfd"
+      },
+      {
+        "name": "Bitters",
+        "brand": "Angostura",
+        "quantity": 2,
+        "unit": "dash",
+        "_id": "63e01079e297adf6e26ccbfe"
+      },
+      {
+        "name": "Simple Syrup",
+        "quantity": 5,
+        "unit": "ml",
+        "_id": "63e01079e297adf6e26ccbff"
+      }
+    ],
+    "method": [
+      {
+        "value": "Add all ingredients to a short glass.",
+        "_id": "63e01079e297adf6e26ccc00"
+      },
+      {
+        "value": "Add ice.",
+        "_id": "63e01079e297adf6e26ccc01"
+      },
+      {
+        "value": "Stir for 20 seconds",
+        "_id": "63e01079e297adf6e26ccc02"
+      },
+      {
+        "value": "Garnish with an orange twist.",
+        "_id": "63e01079e297adf6e26ccc03"
+      }
+    ],
+    "image": "/static/media/cock13.688bac9c999d527617a1.jpg",
+    "author": "Unknown",
+    "createdAt": "2023-02-05T20:24:25.416Z",
+    "slug": "old-fashioned",
+    "ratingsAverage": 4.75,
+    "ratingsQuantity": 4,
+    "id": "63e01079e297adf6e26ccbfc"
+  },
+  {
+    "_id": "63e015c7e297adf6e26cd495",
+    "name": "Paper Plane",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Coupe",
+    "flavour": "Citrusy",
+    "garnish": "Lemon Twist",
+    "ingredients": [
+      {
+        "name": "Bourbon",
+        "brand": "Maker's Mark",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e015c7e297adf6e26cd496"
+      },
+      {
+        "name": "Aperol",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e015c7e297adf6e26cd497"
+      },
+      {
+        "name": "Amaro Nonino",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e015c7e297adf6e26cd498"
+      },
+      {
+        "name": "Lemon Juice",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e015c7e297adf6e26cd499"
+      }
+    ],
+    "method": [
+      {
+        "value": "Shake all ingredients over ice.",
+        "_id": "63e015c7e297adf6e26cd49a"
+      },
+      {
+        "value": "Strain into a chilled coupe.",
+        "_id": "63e015c7e297adf6e26cd49b"
+      },
+      {
+        "value": "Garnish with a lemon twist and serve.",
+        "_id": "63e015c7e297adf6e26cd49c"
+      }
+    ],
+    "image": "/static/media/paper.b86f94399f3fe82f994e.jpg",
+    "author": "Ian Cartwright",
+    "createdAt": "2023-02-05T20:47:03.664Z",
+    "slug": "paper-plane",
+    "ratingsAverage": 4.666666666666667,
+    "ratingsQuantity": 3,
+    "id": "63e015c7e297adf6e26cd495"
+  },
+  {
+    "_id": "63e0173fe297adf6e26cd827",
+    "name": "Tutti Fruiti",
+    "createdBy": "63e00ff4e297adf6e26ccbf7",
+    "glass": "Short",
+    "flavour": "Sweet",
+    "garnish": "Strawberries",
+    "ingredients": [
+      {
+        "name": "Vodka",
+        "brand": "Absolut",
+        "quantity": 2,
+        "unit": "oz",
+        "_id": "63e0173fe297adf6e26cd828"
+      },
+      {
+        "name": "Elderflower Liquor",
+        "quantity": 10,
+        "unit": "ml",
+        "_id": "63e0173fe297adf6e26cd829"
+      },
+      {
+        "name": "Lemon Juice",
+        "quantity": 1,
+        "unit": "oz",
+        "_id": "63e0173fe297adf6e26cd82a"
+      },
+      {
+        "name": "Raspberry Liquor",
+        "brand": "Chambord",
+        "quantity": 10,
+        "unit": "ml",
+        "_id": "63e0173fe297adf6e26cd82b"
+      }
+    ],
+    "method": [
+      {
+        "value": "Shake all ingredients.",
+        "_id": "63e0173fe297adf6e26cd82c"
+      },
+      {
+        "value": "Strain into a short glass.",
+        "_id": "63e0173fe297adf6e26cd82d"
+      },
+      {
+        "value": "Garnish with strawberries.",
+        "_id": "63e0173fe297adf6e26cd82e"
+      },
+      {
+        "value": "Enjoy!!",
+        "_id": "63e0173fe297adf6e26cd82f"
+      }
+    ],
+    "image": "/static/media/cock3.63fbf37427ce5295b545.jpg",
+    "author": "Sarah",
+    "createdAt": "2023-02-05T20:53:19.901Z",
+    "slug": "tutti-fruiti",
+    "ratingsAverage": 4.75,
+    "ratingsQuantity": 4,
+    "id": "63e0173fe297adf6e26cd827"
+  }
+]

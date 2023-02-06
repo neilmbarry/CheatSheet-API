@@ -1,0 +1,338 @@
+[
+  {
+    "_id": "63e01090e297adf6e26ccc1a",
+    "rating": 5,
+    "summary": "Delicious cocktail!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01079e297adf6e26ccbfc",
+    "createdAt": "2023-02-05T20:24:48.988Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e0109fe297adf6e26ccc3a",
+    "rating": 4,
+    "summary": "Superb!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01079e297adf6e26ccbfc",
+    "createdAt": "2023-02-05T20:25:03.397Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e010b0e297adf6e26ccc5a",
+    "rating": 5,
+    "summary": "Tasty!!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01079e297adf6e26ccbfc",
+    "createdAt": "2023-02-05T20:25:20.708Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e010c2e297adf6e26ccc7a",
+    "rating": 5,
+    "summary": "Real good!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01079e297adf6e26ccbfc",
+    "createdAt": "2023-02-05T20:25:38.309Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01144e297adf6e26ccce8",
+    "rating": 2,
+    "summary": "Not great, not terrible...",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01130e297adf6e26ccccf",
+    "createdAt": "2023-02-05T20:27:48.028Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01156e297adf6e26ccd05",
+    "rating": 3,
+    "summary": "It's okay, I guess...",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01130e297adf6e26ccccf",
+    "createdAt": "2023-02-05T20:28:06.736Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e0117ee297adf6e26ccd7f",
+    "rating": 5,
+    "summary": "Pretty good if you ask me!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01130e297adf6e26ccccf",
+    "createdAt": "2023-02-05T20:28:46.839Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01244e297adf6e26ccdb1",
+    "rating": 5,
+    "summary": "Lovely!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01234e297adf6e26ccd95",
+    "createdAt": "2023-02-05T20:32:04.979Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e0124ee297adf6e26ccdd1",
+    "rating": 5,
+    "summary": "Great!!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01234e297adf6e26ccd95",
+    "createdAt": "2023-02-05T20:32:14.782Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01258e297adf6e26ccdf1",
+    "rating": 4,
+    "summary": "Fantastic!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01234e297adf6e26ccd95",
+    "createdAt": "2023-02-05T20:32:24.658Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e014c9e297adf6e26cd1f6",
+    "rating": 5,
+    "summary": "",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e014bae297adf6e26cd1da",
+    "createdAt": "2023-02-05T20:42:49.543Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e014d4e297adf6e26cd216",
+    "rating": 5,
+    "summary": "Delightful!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e014bae297adf6e26cd1da",
+    "createdAt": "2023-02-05T20:43:00.979Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e014e0e297adf6e26cd236",
+    "rating": 2,
+    "summary": "Not too bad!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e014bae297adf6e26cd1da",
+    "createdAt": "2023-02-05T20:43:12.513Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e014ebe297adf6e26cd256",
+    "rating": 5,
+    "summary": "Nice!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e014bae297adf6e26cd1da",
+    "createdAt": "2023-02-05T20:43:23.659Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e015dee297adf6e26cd4b4",
+    "rating": 5,
+    "summary": "Yum!!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e015c7e297adf6e26cd495",
+    "createdAt": "2023-02-05T20:47:26.310Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e015e7e297adf6e26cd4d4",
+    "rating": 5,
+    "summary": "It's great!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e015c7e297adf6e26cd495",
+    "createdAt": "2023-02-05T20:47:35.912Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e015f2e297adf6e26cd4f4",
+    "rating": 4,
+    "summary": "Real good!!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e015c7e297adf6e26cd495",
+    "createdAt": "2023-02-05T20:47:46.440Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e0168ce297adf6e26cd6db",
+    "rating": 2,
+    "summary": "I don't like vermouth...",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e0167fe297adf6e26cd6c2",
+    "createdAt": "2023-02-05T20:50:20.959Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e0169be297adf6e26cd6f8",
+    "rating": 4,
+    "summary": "Not the best cocktail, but pretty good!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e0167fe297adf6e26cd6c2",
+    "createdAt": "2023-02-05T20:50:35.894Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e016a4e297adf6e26cd715",
+    "rating": 2,
+    "summary": "Not a fan!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e0167fe297adf6e26cd6c2",
+    "createdAt": "2023-02-05T20:50:44.831Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01753e297adf6e26cd846",
+    "rating": 5,
+    "summary": "The best thing I have ever tried!!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e0173fe297adf6e26cd827",
+    "createdAt": "2023-02-05T20:53:39.681Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01762e297adf6e26cd869",
+    "rating": 5,
+    "summary": "I cannot overstate how good this is!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e0173fe297adf6e26cd827",
+    "createdAt": "2023-02-05T20:53:54.960Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e0176ee297adf6e26cd88c",
+    "rating": 5,
+    "summary": "So good!!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e0173fe297adf6e26cd827",
+    "createdAt": "2023-02-05T20:54:06.144Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e0177ce297adf6e26cd8af",
+    "rating": 4,
+    "summary": "Lovely",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e0173fe297adf6e26cd827",
+    "createdAt": "2023-02-05T20:54:20.102Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e0183fe297adf6e26cdd1e",
+    "rating": 5,
+    "summary": "You can't mess up this cocktail!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01830e297adf6e26cdd08",
+    "createdAt": "2023-02-05T20:57:35.545Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01847e297adf6e26cdd38",
+    "rating": 3,
+    "summary": "Nice!",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01830e297adf6e26cdd08",
+    "createdAt": "2023-02-05T20:57:43.948Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01852e297adf6e26cdd52",
+    "rating": 3,
+    "summary": "Quite good...",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01830e297adf6e26cdd08",
+    "createdAt": "2023-02-05T20:57:54.263Z",
+    "__v": 0
+  },
+  {
+    "_id": "63e01b5baae8dd3abd1d37ff",
+    "rating": 4,
+    "summary": "Very sweet",
+    "user": {
+      "_id": "63e00ff4e297adf6e26ccbf7",
+      "id": "63e00ff4e297adf6e26ccbf7"
+    },
+    "cocktail": "63e01b4eaae8dd3abd1d37e0",
+    "createdAt": "2023-02-05T21:10:51.361Z",
+    "__v": 0
+  }
+]
