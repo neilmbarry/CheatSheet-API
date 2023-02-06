@@ -6,32 +6,21 @@ module.exports = class APIFeatures {
 
   filter() {
     const queryObj = { ...this.queryString };
-    console.log(queryObj, 'queryObj');
+
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach((el) => delete queryObj[el]);
-
-    // 1B. Advanced filtering
-    // console.log(queryObj);
-    // console.log(queryObj.nameSearch, '<<<<<<<<<<<<,');
-
-    // queryObj.name = { $regex: '^M', $options: 'i' };
 
     if (queryObj.nameSearch) {
       queryObj.name = { $regex: `.*${queryObj.nameSearch}.*`, $options: 'i' };
     }
 
     if (queryObj.idArray) {
-      // ['4jkhesrhfleirf','asdjhfaksdjf']
       queryObj.idArray.forEach((id, i) => {
         queryObj[`remove${i}_id`] = id;
       });
     }
 
-    console.log(queryObj, 'queryObj');
-
     let queryString = JSON.stringify(queryObj);
-
-    console.log(queryString, 'queryString');
 
     queryString = queryString.replace(
       /\b(gte|gt|lte|lt)\b/g,

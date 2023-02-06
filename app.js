@@ -28,26 +28,13 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 
 app.use((req, res, next) => {
-  console.log('Hello from the middleware! 🙋‍♂️');
-  next();
-});
-
-app.use((req, res, next) => {
   req.requestedAt = new Date().toString();
   next();
 });
 
 app.use('/api/v1/cocktails', cocktailRouter);
-app.use((req, res, next) => {
-  console.log('Hello from here! 🙋‍♂️');
-  next();
-});
-app.use('/api/v1/users', userRouter);
 
-app.use((req, res, next) => {
-  console.log('Hello from here! 🙋‍♂️');
-  next();
-});
+app.use('/api/v1/users', userRouter);
 
 app.use('/api/v1/reviews', reviewRouter);
 

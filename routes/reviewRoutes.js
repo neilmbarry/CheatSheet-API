@@ -15,11 +15,6 @@ const router = express.Router({
   mergeParams: true,
 });
 
-router.use((req, res, next) => {
-  console.log('Hello from the REVIEWROUTES! 🙋‍♂️');
-  next();
-});
-
 router.route('/').get(getAllReviews).post(protect, createReview);
 
 router

@@ -33,7 +33,6 @@ exports.signUp = async (req, res, next) => {
   try {
     const user = await User.create(req.body);
     const token = createJsonWebToken(user._id);
-    console.log('duped', user);
 
     user.password = undefined;
     res.status(201).json({
@@ -55,8 +54,6 @@ exports.login = async (req, res, next) => {
     }
 
     const user = await User.findOne({ username }).select('+password');
-
-    console.log(user);
 
     if (!user || !(await user.isCorrectPassword(password))) {
       return next(new AppError('Incorrect username or password.'));
@@ -113,9 +110,7 @@ exports.restrictTo = (...users) => {
           if (!cocktail) {
             return next(new AppError('Cocktail not found', 404));
           }
-          console.log(cocktail);
           const cocktailAuthorId = cocktail.createdBy.toString();
-          console.log(cocktailAuthorId, '<------ Cocktail author');
           isAuthor = req.user.id == cocktailAuthorId ? true : false;
         }
         if (model === 'reviews') {

@@ -4,15 +4,11 @@ const APIFeatures = require('../utils/apiFeatures');
 
 exports.getAllCocktails = async (req, res, next) => {
   try {
-    console.log(req.query, 'req.query');
-
     const features = new APIFeatures(Cocktail.find(), req.query)
       .filter()
       .sort()
       .limitFields();
     // .paginate();
-
-    // console.log(features.query);
 
     const allMatchingCocktails = await features.query;
 
@@ -71,7 +67,6 @@ exports.getCocktail = async (req, res, next) => {
 
 exports.updateCocktail = async (req, res, next) => {
   try {
-    console.log(req.params);
     const { slug } = req.params;
     const cocktail = await Cocktail.findOneAndUpdate({ slug }, req.body, {
       new: true,
@@ -91,10 +86,8 @@ exports.updateCocktail = async (req, res, next) => {
 };
 
 exports.deleteCocktail = async (req, res, next) => {
-  console.log('deleting cokctila');
   try {
     const { slug } = req.params;
-    console.log('delete cocktail ', slug);
     await Cocktail.findOneAndDelete({ slug });
     res.status(204).json({
       status: 'success',

@@ -38,12 +38,10 @@ const testReviews = JSON.parse(
 const addData = async () => {
   try {
     console.log('Importing cocktails...');
-    // await Cocktail.create(cocktails);
+
     await Cocktail.create(testCocktails);
     console.log('Cocktails imported!');
-    // console.log('Importing users...');
-    // await User.create(users);
-    // console.log('Users imported!');
+
     process.exit(1);
   } catch (err) {
     console.log(err);
