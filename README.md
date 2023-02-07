@@ -1,6 +1,8 @@
 # Cheat-Sheet-API
 
-This is the back end server that works in conjunction with [_Cheat-Sheet-App_] (https://simp-app.vercel.app/) on the front end.
+This is the back end server that works in conjunction with [Cheat-Sheet-App] (github.com/neilmbarry/CheatSheet-App) on the front end.
+
+> You can check out a live demo [here](https://cheat-sheet-app.vercel.app/)
 
 ## Table of Contents
 
