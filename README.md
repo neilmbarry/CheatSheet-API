@@ -37,11 +37,15 @@ A controller function
 - You will need to add your own config.env file with the following variable to run the server and connect to your own MongoDB database:
 
 > NODE_ENV='development'
+
 > PORT=8000
+
 > JWT_SECRET={YOUR_SECRET}
+
 > JWT_EXPIRES_IN=90d
-> JWT_COOKIE_EXPIRES_IN=90d
+
 > DATABASE=mongodb+srv://{YOUR_MONGO_DB_DATABASE}
+
 > DATABASE_PASSWORD={YOUR_DB_PASSWORD}
 
 ## Project Status
