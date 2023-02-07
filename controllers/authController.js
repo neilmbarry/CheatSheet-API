@@ -7,22 +7,6 @@ const sendEmail = require('../utils/email');
 const Cocktail = require('../models/cocktailModel');
 const Review = require('../models/reviewModel');
 
-//TODO
-// SIGN UP
-// 1. Create new user
-// 2. Log in
-// 3. Persist login (create jsonwebtoken using user.id, JSONWEBTOKENSECRET, and options)
-// 4. Attach to header as Auth (only for postman) and to req.cookie
-//    respond with jsonwebtoken
-// 5. Create protect middleware
-//    (if there's no token on headers or cookie, return not logged in)
-//    decode token and find user by id
-//    assign req.user
-// 6. Log in
-//    Grab username and password from req.body
-//    Find user from email / username
-//    Use (create) schema method to compare passwords
-//    if true, do step 3 and 4.
 
 const createJsonWebToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, {

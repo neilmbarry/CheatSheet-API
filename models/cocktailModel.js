@@ -108,8 +108,6 @@ const cocktailSchema = new mongoose.Schema(
   }
 );
 
-// cocktailSchema.virtual('durationWeeks').get(() => 6);
-
 cocktailSchema.virtual('reviews', {
   ref: 'Review',
   foreignField: 'cocktail',

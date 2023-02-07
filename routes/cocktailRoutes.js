@@ -15,8 +15,6 @@ const router = express.Router();
 
 router.route('/').get(getAllCocktails).post(protect, createCocktail);
 
-// Define route to aggregate ingredients
-// router.route('/');
 router.route('/random').get(randomCocktail);
 
 router

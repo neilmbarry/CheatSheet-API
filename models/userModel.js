@@ -28,7 +28,6 @@ const userSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.ObjectId,
         ref: 'Cocktail',
-        // type: String,
       },
     ],
     submissions: [

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
-// const path = require('path');
 const dotenv = require('dotenv');
 const Cocktail = require('../models/cocktailModel');
 const User = require('../models/userModel');

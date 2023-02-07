@@ -8,7 +8,6 @@ exports.getAllCocktails = async (req, res, next) => {
       .filter()
       .sort()
       .limitFields();
-    // .paginate();
 
     const allMatchingCocktails = await features.query;
 
