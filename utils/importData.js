@@ -102,7 +102,7 @@ const resetData = async () => {
     await Review.create(testReviews, {
       validateBeforeSave: false,
     });
-    // await User.create(users);
+
     console.log('Data imported!');
     process.exit(1);
   } catch (err) {

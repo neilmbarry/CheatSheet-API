@@ -20,11 +20,7 @@ router.route('/random').get(randomCocktail);
 router
   .route('/:slug')
   .get(getCocktail)
-  .patch(
-    // protect,
-    // restrictTo('admin', 'author'),
-    updateCocktail
-  )
+  .patch(updateCocktail)
   .delete(protect, restrictTo('admin', 'author'), deleteCocktail);
 
 module.exports = router;
