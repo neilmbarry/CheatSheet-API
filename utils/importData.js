@@ -87,6 +87,7 @@ const deleteReviews = async () => {
   }
 };
 
+// Resets all data
 const resetData = async () => {
   try {
     console.log('Deleting data...');
